@@ -1,12 +1,11 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavigationItemConfig, Notification} from 'patternfly-ng';
 import {MessageService} from '../services/message.service';
 import {MessageHistory} from '../message-history';
 
 @Component({
   selector: 'app-nav',
-  templateUrl: './nav.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './nav.component.html'
 })
 export class NavComponent implements OnInit {
   notifications: Notification[];

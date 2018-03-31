@@ -33,11 +33,11 @@ export class CardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.messageService.success('Successfully changed route to Card View');
   }
 
   handleFilter($event: CardFilter): void {
     this.selectedFilter = $event.value;
+    this.messageService.success(`Changed filter to ${this.selectedFilter}`);
   }
 
 }
