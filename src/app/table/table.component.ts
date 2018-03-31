@@ -32,9 +32,9 @@ export class TableComponent implements OnInit {
       .subscribe(people => {
         this.rows = people;
 
-		if (this.rows.length > 0) {
+        if (this.rows.length > 0) {
           this.messageService.success('Successfully loaded people from service');
-		}
+        }
       });
   }
 
