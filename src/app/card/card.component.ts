@@ -30,6 +30,7 @@ export class CardComponent implements OnInit {
   selectedFilter = 'none';
 
   constructor(private messageService: MessageService) {
+    this.messageService.success('Successfully loaded card view');
   }
 
   ngOnInit() {
@@ -37,7 +38,6 @@ export class CardComponent implements OnInit {
 
   handleFilter($event: CardFilter): void {
     this.selectedFilter = $event.value;
-    this.messageService.success(`Changed filter to ${this.selectedFilter}`);
   }
 
 }
