@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {People} from '../people';
+import {Comment} from '../comment';
 import {catchError} from 'rxjs/operators';
 import {MessageService} from './message.service';
 import {Observable} from 'rxjs/Observable';
@@ -11,17 +11,17 @@ const httpOptions = {
 };
 
 @Injectable()
-export class PeopleService {
-  private peopleUrl = 'api/people';
+export class CommentService {
+  private url = '/jsonplaceholder/comments';
 
   constructor(private messageService: MessageService, private http: HttpClient) {
   }
 
-  getPeople(): Observable<People[]> {
-    return this.http.get<People[]>(this.peopleUrl)
+  getComments(): Observable<Comment[]> {
+    return this.http.get<Comment[]>(this.url)
       .pipe(
         catchError(error => {
-          this.messageService.error(`getPeople() ${error.message}`);
+          this.messageService.error(`getComments() ${error.message}`);
           return of([]);
         })
       );

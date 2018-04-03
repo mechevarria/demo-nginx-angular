@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {MessageService} from '../services/message.service';
-import {PeopleService} from '../services/people.service';
-import {People} from '../people';
-import {TableConfig} from 'patternfly-ng';
+import {CommentService} from '../services/comment.service';
+import {Comment} from '../comment';
+import {PaginationConfig, PaginationEvent, TableConfig} from 'patternfly-ng';
 
 @Component({
   selector: 'app-table',
@@ -10,32 +10,61 @@ import {TableConfig} from 'patternfly-ng';
 })
 export class TableComponent implements OnInit {
 
-  constructor(private messageService: MessageService, private peopleService: PeopleService) {
+  constructor(private messageService: MessageService, private commentService: CommentService) {
   }
 
   viewName = 'Table View';
+  rows: Comment[];
+  allRows: Comment[];
+
   columns: any[] = [
-    {name: 'ID', prop: 'id', sortable: true},
-    {name: 'Name', prop: 'name', sortable: true},
-    {name: 'Address', prop: 'address', sortable: true},
-    {name: 'City', prop: 'city', sortable: true},
-    {name: 'State', prop: 'state', sortable: true}
+    {name: 'ID', prop: 'id', sortable: false},
+    {name: 'Post ID', prop: 'postId', sortable: false},
+    {name: 'Name', prop: 'name', sortable: false},
+    {name: 'E-Mail', prop: 'email', sortable: false},
+    {name: 'Body', prop: 'body', sortable: false}
   ];
-  tableConfig: TableConfig = {
-    showCheckbox: false
+
+  paginationConfig: PaginationConfig = {
+    pageSize: 5,
+    pageNumber: 1,
+    totalItems: 0
   };
 
-  rows: People[];
+  tableConfig: TableConfig = {
+    showCheckbox: false,
+    paginationConfig: this.paginationConfig
+  };
 
-  ngOnInit() {
-    this.peopleService.getPeople()
-      .subscribe(people => {
-        this.rows = people;
+  handlePage($event: PaginationEvent): void {
+    this.updateRows();
+  }
 
-        if (this.rows.length > 0) {
-          this.messageService.success('Successfully loaded people from service');
+  updateRows(): void {
+    this.rows = this.allRows.slice((this.paginationConfig.pageNumber - 1) * this.paginationConfig.pageSize,
+      this.paginationConfig.totalItems).slice(0, this.paginationConfig.pageSize);
+  }
+
+  load(): void {
+    this.commentService.getComments()
+      .subscribe(res => {
+        this.allRows = res;
+
+        if (this.allRows.length > 0) {
+          this.messageService.success(`Successfully loaded ${this.allRows.length} comments from service`);
+          this.paginationConfig.totalItems = this.allRows.length;
+          this.updateRows();
         }
       });
+  }
+
+  clear(): void {
+    this.allRows = [];
+    this.messageService.info('Cleared data');
+    this.updateRows();
+  }
+
+  ngOnInit() {
   }
 
 }
