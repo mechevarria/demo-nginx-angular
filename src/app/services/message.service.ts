@@ -41,15 +41,19 @@ export class MessageService {
     this.notify(NotificationType.INFO, msg);
   }
 
-  warning(msg: string): void {
+  warn(msg: string): void {
     this.notify(NotificationType.WARNING, msg);
   }
 
   private notify(type: string, msg: string): void {
-    this.messageHistory.push({
-      class: this.classMap[type],
-      msg: msg
-    });
+
+    // make the delay to dropdown the same as the notification fade
+    setTimeout(function (history, map) {
+      history.push({
+        class: map[type],
+        msg: msg
+      });
+    }, 8000, this.messageHistory, this.classMap);
 
     this.notificationService.message(type,
       null,
