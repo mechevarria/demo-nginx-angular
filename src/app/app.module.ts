@@ -2,7 +2,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {CardModule, EmptyStateModule, NavigationModule, NotificationModule, TableModule} from 'patternfly-ng';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {McBreadcrumbsModule} from 'ngx-breadcrumbs';
 import {NgModule} from '@angular/core';
 
@@ -16,6 +15,7 @@ import {MessageService} from './services/message.service';
 import {CommentService} from './services/comment.service';
 import {RouterModule} from '@angular/router';
 import {AppRoutes} from './app-routes';
+import {BsDropdownModule} from 'ngx-bootstrap';
 
 
 @NgModule({
@@ -37,7 +37,7 @@ import {AppRoutes} from './app-routes';
     EmptyStateModule,
     TableModule,
     CardModule,
-    NgbModule.forRoot()
+    BsDropdownModule.forRoot()
   ],
   providers: [
     MessageService,
