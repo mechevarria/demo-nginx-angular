@@ -13,13 +13,12 @@ export class TableComponent implements OnInit {
   constructor(private messageService: MessageService, private commentService: CommentService) {
   }
 
-  viewName = 'Table View';
   rows: Comment[];
-  allRows: Comment[];
+  allRows: Comment[] = [new Comment()];
 
   columns: any[] = [
-    {name: 'ID', prop: 'id', sortable: false},
-    {name: 'Post ID', prop: 'postId', sortable: false},
+    {name: 'ID', prop: 'id', sortable: true},
+    {name: 'Post ID', prop: 'postId', sortable: true},
     {name: 'Name', prop: 'name', sortable: false},
     {name: 'E-Mail', prop: 'email', sortable: false},
     {name: 'Body', prop: 'body', sortable: false}
@@ -28,7 +27,7 @@ export class TableComponent implements OnInit {
   paginationConfig: PaginationConfig = {
     pageSize: 5,
     pageNumber: 1,
-    totalItems: 0
+    pageSizeIncrements: [5, 50, 500]
   };
 
   tableConfig: TableConfig = {
@@ -50,21 +49,23 @@ export class TableComponent implements OnInit {
       .subscribe(res => {
         this.allRows = res;
 
-        if (this.allRows.length > 0) {
+        if (this.allRows != null) {
           this.messageService.success(`Successfully loaded ${this.allRows.length} comments from service`);
           this.paginationConfig.totalItems = this.allRows.length;
           this.updateRows();
         }
+
       });
   }
 
   clear(): void {
-    this.allRows = [];
+    this.allRows = [new Comment()];
     this.messageService.info('Cleared data');
     this.updateRows();
   }
 
   ngOnInit() {
+    this.updateRows();
   }
 
 }

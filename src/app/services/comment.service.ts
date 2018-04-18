@@ -22,7 +22,7 @@ export class CommentService {
       .pipe(
         catchError(error => {
           this.messageService.error(`getComments() ${error.message}`);
-          return of([]);
+          return of(null);
         })
       );
   }
