@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {MessageService} from '../services/message.service';
-import {CommentService} from '../services/comment.service';
-import {Comment} from '../comment';
+import {MessageService} from '../common/message.service';
+import {CommentService} from './comment.service';
+import {Comment} from './comment';
 import {PaginationConfig, PaginationEvent, TableConfig} from 'patternfly-ng';
 
 @Component({

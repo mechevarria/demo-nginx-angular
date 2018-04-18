@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Comment} from '../comment';
+import {Comment} from './comment';
 import {catchError} from 'rxjs/operators';
-import {MessageService} from './message.service';
+import {MessageService} from '../common/message.service';
 import {Observable} from 'rxjs/Observable';
 import {of} from 'rxjs/observable/of';
 

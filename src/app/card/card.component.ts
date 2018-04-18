@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CardConfig, CardFilter} from 'patternfly-ng';
-import {MessageService} from '../services/message.service';
+import {MessageService} from '../common/message.service';
 
 @Component({
   selector: 'app-card',

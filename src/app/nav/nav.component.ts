@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NavigationItemConfig, Notification} from 'patternfly-ng';
-import {MessageService} from '../services/message.service';
-import {MessageHistory} from '../message-history';
+import {MessageService} from '../common/message.service';
+import {MessageHistory} from '../common/message-history';
 
 @Component({
   selector: 'app-nav',
