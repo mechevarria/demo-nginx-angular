@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {MessageService} from '../common/message.service';
 import {CommentService} from './comment.service';
 import {Comment} from './comment';
@@ -8,12 +8,12 @@ import {PaginationConfig, PaginationEvent, TableConfig} from 'patternfly-ng';
   selector: 'app-table',
   templateUrl: './table.component.html'
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements AfterViewInit {
 
   constructor(private messageService: MessageService, private commentService: CommentService) {
   }
 
-  rows: Comment[];
+  rows: Comment[] = [new Comment()];
   allRows: Comment[] = [new Comment()];
 
   columns: any[] = [
@@ -58,14 +58,17 @@ export class TableComponent implements OnInit {
       });
   }
 
-  clear(): void {
-    this.allRows = [new Comment()];
-    this.messageService.info('Cleared data');
+  clear(showMsg: boolean = true): void {
+    this.allRows = [];
     this.updateRows();
+
+    if (showMsg) {
+      this.messageService.info('Cleared data');
+    }
   }
 
-  ngOnInit() {
-    this.updateRows();
+  ngAfterViewInit() {
+    this.clear(false);
   }
 
 }
