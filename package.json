@@ -10,7 +10,7 @@
   },
   "scripts": {
     "ng": "node_modules/@angular/cli/bin/ng",
-    "start": "node_modules/@angular/cli/bin/ng serve --prod --port 8080 --host 0.0.0.0 --proxy-config proxy.json",
+    "start": "node_modules/@angular/cli/bin/ng serve --prod --port 8080 --host 0.0.0.0 --proxy-config proxy.json --disable-host-check",
     "local": "node_modules/@angular/cli/bin/ng serve --host 0.0.0.0 --proxy-config proxy.json",
     "build": "node_modules/@angular/cli/bin/ng build --prod",
     "lint": "node_modules/@angular/cli/bin/ng lint"
