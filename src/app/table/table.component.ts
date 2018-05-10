@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
 import {MessageService} from '../common/message.service';
 import {CommentService} from './comment.service';
 import {Comment} from './comment';
@@ -13,8 +13,8 @@ export class TableComponent implements AfterViewInit {
   constructor(private messageService: MessageService, private commentService: CommentService) {
   }
 
-  rows: Comment[] = [new Comment()];
-  allRows: Comment[] = [new Comment()];
+  rows: Comment[] = [];
+  allRows: Comment[] = [];
 
   columns: any[] = [
     {name: 'ID', prop: 'id', sortable: true},
@@ -68,7 +68,6 @@ export class TableComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.clear(false);
   }
 
 }
