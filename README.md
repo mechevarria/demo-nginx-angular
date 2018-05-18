@@ -38,7 +38,7 @@ The default build will run a `npm install` command and then `npm run start`.
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-To get started with Angular 5, this is an excellent official [tutorial](https://angular.io/tutorial)
+To get started with Angular, this is an excellent official [tutorial](https://angular.io/tutorial)
 
 More help on the Patternfly/NG [components](http://www.patternfly.org/patternfly-ng/#/action)
 
