@@ -42,7 +42,7 @@ To get started with Angular, this is an excellent official [tutorial](https://an
 
 More help on the Patternfly/NG [components](http://www.patternfly.org/patternfly-ng/#/action)
 
-Dropdown components were created using [ng-bootstrap](https://ng-bootstrap.github.io/#/home)
+Dropdown components were created using [ngx-bootstrap](https://github.com/valor-software/ngx-bootstrap)
 
 Breadcrumb component used was [ngx-breadcrumbs](https://github.com/McNull/ngx-breadcrumbs)
 
