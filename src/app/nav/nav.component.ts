@@ -1,14 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {NavigationItemConfig, Notification} from 'patternfly-ng';
-import {MessageService} from '../common/message.service';
+import { Component, OnInit } from '@angular/core';
 import {MessageHistory} from '../common/message-history';
+import {NavigationItemConfig} from 'patternfly-ng';
+import {MessageService} from '../common/message.service';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html'
 })
+
 export class NavComponent implements OnInit {
-  notifications: Notification[];
+  notifications: any[];
   messageHistory: MessageHistory[];
   navigationItems: NavigationItemConfig[] = [
     {

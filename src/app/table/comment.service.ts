@@ -3,13 +3,17 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Comment} from './comment';
 import {catchError} from 'rxjs/operators';
 import {MessageService} from '../common/message.service';
-import {Observable, of} from 'rxjs';
+import {Observable, of} from 'rxjs/index';
+
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-@Injectable()
+
+@Injectable({
+  providedIn: 'root'
+})
 export class CommentService {
   private url = '/jsonplaceholder/comments';
 
