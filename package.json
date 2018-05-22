@@ -1,10 +1,16 @@
 {
   "name": "patternfly-ng-seed",
-  "version": "0.0.0",
+  "description": "patternfly-ng seed project based on angular-cli scaffolding",
+  "author": "Mike Echevarria <mechevar@redhat.com>",
+  "version": "2.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mechevarria/patternfly-ng-seed.git"
+  },
   "scripts": {
     "ng": "node_modules/@angular/cli/bin/ng",
-    "prod": "node_modules/@angular/cli/bin/ng serve --prod --port 8080 --host 0.0.0.0 --proxy-config proxy.json --disable-host-check",
-    "start": "node_modules/@angular/cli/bin/ng serve --port 8080 --host 0.0.0.0 --proxy-config proxy.json --disable-host-check",
+    "start": "node_modules/@angular/cli/bin/ng serve --prod --port 8080 --host 0.0.0.0 --proxy-config proxy.json --disable-host-check",
     "local": "node_modules/@angular/cli/bin/ng serve --host 0.0.0.0 --proxy-config proxy.json",
     "build": "node_modules/@angular/cli/bin/ng build --prod",
     "test": "ng test",
@@ -28,7 +34,6 @@
     "patternfly": "^3.46.2",
     "patternfly-ng": "^3.3.1",
     "rxjs": "^6.0.0",
-    "rxjs-compat": "^6.1.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
