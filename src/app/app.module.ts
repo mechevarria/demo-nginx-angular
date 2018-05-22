@@ -13,6 +13,8 @@ import { TableComponent } from './table/table.component';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import {McBreadcrumbsModule} from 'ngx-breadcrumbs';
+import {MessageService} from './common/message.service';
+import {CommentService} from './table/comment.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,10 @@ import {McBreadcrumbsModule} from 'ngx-breadcrumbs';
     BasicCardModule,
     BsDropdownModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    MessageService,
+    CommentService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

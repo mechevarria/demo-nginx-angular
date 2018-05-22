@@ -6,9 +6,7 @@ import {NotificationEvent} from 'patternfly-ng';
 import {MessageHistory} from './message-history';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class MessageService {
 
   private messageHistory: MessageHistory[] = [];
