@@ -40,7 +40,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 To get started with Angular, this is an excellent official [tutorial](https://angular.io/tutorial)
 
-More help on the Patternfly/NG [components](http://www.patternfly.org/patternfly-ng/#/action)
+More help on the Patternfly/NG [components](http://www.patternfly.org/patternfly-ng/)
 
 Dropdown components were created using [ngx-bootstrap](https://github.com/valor-software/ngx-bootstrap)
 
