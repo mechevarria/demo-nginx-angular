@@ -36,12 +36,12 @@
     "patternfly": "^3.46.3",
     "patternfly-ng": "^3.3.1",
     "rxjs": "~5.5.10",
-    "zone.js": "^0.8.19"
-  },
-  "devDependencies": {
+    "typescript": "~2.5.3",
+    "ts-node": "~4.1.0",
+    "zone.js": "^0.8.19",
+    "@types/node": "~6.0.60",
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
-    "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
@@ -51,8 +51,6 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2",
-    "ts-node": "~4.1.0",
-    "tslint": "~5.9.1",
-    "typescript": "~2.5.3"
+    "tslint": "~5.9.1"
   }
 }
