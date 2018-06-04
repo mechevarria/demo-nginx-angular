@@ -1,7 +1,10 @@
 #!/bin/bash
 
-app_path=.
-builder_image=rhscl/nodejs-8-rhel7
-output_image=s2i-build/patternfly-ng-seed
+# https://github.com/openshift/source-to-image/blob/master/docs/cli.md#s2i-build
 
-s2i build ${app_path} ${builder_image} ${output_image} -c
+source_location=.
+builder_image=rhscl/nodejs-8-rhel7
+tag=s2i-build/patternfly-ng-seed
+flags=-c
+
+s2i build ${source_location} ${builder_image} ${tag} ${flags}
