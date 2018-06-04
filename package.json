@@ -8,14 +8,15 @@
     "type": "git",
     "url": "https://github.com/mechevarria/patternfly-ng-seed.git"
   },
+  "ng": "node_modules/@angular/cli/bin/ng",
   "scripts": {
-    "ng": "node_modules/.bin/ng",
-    "start": "ng serve --prod --port 8080 --host 0.0.0.0 --proxy-config proxy.json --disable-host-check",
-    "local": "ng serve --host 0.0.0.0 --proxy-config proxy.json",
-    "prod": "ng build --prod",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "ng": "$npm_package_ng",
+    "start": "$npm_package_ng serve --prod --port 8080 --host 0.0.0.0 --proxy-config proxy.json --disable-host-check",
+    "local": "$npm_package_ng serve --host 0.0.0.0 --proxy-config proxy.json",
+    "prod": "$npm_package_ng build --prod",
+    "test": "$npm_package_ng test",
+    "lint": "$npm_package_ng lint",
+    "e2e": "$npm_package_ng e2e"
   },
   "dependencies": {
     "@angular/animations": "~5.2.11",
