@@ -2,7 +2,7 @@
   "name": "patternfly-ng-seed",
   "description": "patternfly-ng seed project based on angular-cli scaffolding",
   "author": "Mike Echevarria <mechevar@redhat.com>",
-  "version": "1.1.0",
+  "version": "1.5.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -11,12 +11,10 @@
   "ng": "node_modules/@angular/cli/bin/ng",
   "scripts": {
     "ng": "$npm_package_ng",
-    "start": "$npm_package_ng serve --prod --port 8080 --host 0.0.0.0 --proxy-config proxy.json --disable-host-check",
     "local": "$npm_package_ng serve --host 0.0.0.0 --proxy-config proxy.json",
-    "prod": "$npm_package_ng build --prod",
-    "test": "$npm_package_ng test",
-    "lint": "$npm_package_ng lint",
-    "e2e": "$npm_package_ng e2e"
+    "build": "$npm_package_ng build --prod",
+    "buildDev": "$npm_package_ng build --watch",
+    "lint": "$npm_package_ng lint"
   },
   "dependencies": {
     "@angular/animations": "~5.2.11",
@@ -31,27 +29,21 @@
     "@angular/platform-browser": "~5.2.11",
     "@angular/platform-browser-dynamic": "~5.2.11",
     "@angular/router": "^5.2.11",
+    "@types/node": "~6.0.60",
+    "codelyzer": "^4.0.1",
     "core-js": "^2.4.1",
+    "express": "~4.16.0",
+    "http-proxy-middleware": "^0.18.0",
+    "morgan": "~1.9.0",
     "ngx-bootstrap": "~2.0.5",
     "ngx-breadcrumbs": "0.0.3",
-    "patternfly": "^3.48.2",
+    "npm-sort": "0.0.4",
+    "patternfly": "^3.48.4",
     "patternfly-ng": "^3.3.4",
     "rxjs": "~5.5.10",
-    "typescript": "~2.5.3",
-    "zone.js": "^0.8.19",
     "ts-node": "~4.1.0",
-    "@types/node": "~6.0.60",
-    "@types/jasmine": "~2.8.3",
-    "@types/jasminewd2": "~2.0.2",
-    "codelyzer": "^4.0.1",
-    "jasmine-core": "~2.8.0",
-    "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~2.0.0",
-    "karma-chrome-launcher": "~2.2.0",
-    "karma-coverage-istanbul-reporter": "^1.2.1",
-    "karma-jasmine": "~1.1.0",
-    "karma-jasmine-html-reporter": "^0.2.2",
-    "protractor": "~5.1.2",
-    "tslint": "~5.9.1"
+    "tslint": "~5.9.1",
+    "typescript": "~2.5.3",
+    "zone.js": "^0.8.19"
   }
 }
