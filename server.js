@@ -1,5 +1,6 @@
 'use strict';
 
+let compression = require('compression');
 let express = require('express');
 let logger = require('morgan');
 let http = require('http');
@@ -8,15 +9,19 @@ let proxy = require('http-proxy-middleware');
 
 let app = express();
 
+app.set('port', process.env.PORT || 8080);
+
+app.use(compression());
+
+app.use(logger('combined'));
+
+app.use(express.static(path.join(__dirname, 'dist')));
+
 let proxyContext = '/jsonplaceholder/*';
 let proxyOptions = require('./proxy.json')[proxyContext];
 let backendProxy = proxy(proxyOptions);
-
-app.set('port', process.env.PORT || 8080);
-app.use(logger('dev'));
-
-app.use(express.static(path.join(__dirname, 'dist')));
 app.use(proxyContext, backendProxy);
+
 app.use(function(req, res) {
   res.sendfile(__dirname + '/dist/index.html');
 });
