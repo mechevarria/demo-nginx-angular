@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MessageHistory} from '../common/message-history';
 import {NavigationItemConfig} from 'patternfly-ng';
 import {MessageService} from '../common/message.service';
