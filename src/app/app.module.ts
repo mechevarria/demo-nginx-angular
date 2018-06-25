@@ -6,7 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {AppRoutes} from './app.routes';
-import {CardModule, EmptyStateModule, TableModule, NotificationModule, NavigationModule, NotificationService} from 'patternfly-ng';
+import {CardModule, EmptyStateModule, TableModule, ToastNotificationListModule, NavigationModule, NotificationService} from 'patternfly-ng';
 import {BsDropdownModule} from 'ngx-bootstrap';
 import {CardComponent} from './card/card.component';
 import {TableComponent} from './table/table.component';
@@ -30,7 +30,7 @@ import {CommentService} from './table/comment.service';
     HttpClientModule,
     RouterModule.forRoot(AppRoutes),
     McBreadcrumbsModule.forRoot(),
-    NotificationModule,
+    ToastNotificationListModule,
     EmptyStateModule,
     TableModule,
     CardModule,
