@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {MessageHistory} from '../common/message-history';
-import {NavigationItemConfig} from 'patternfly-ng';
 import {MessageService} from '../common/message.service';
 
 @Component({
@@ -11,7 +10,7 @@ import {MessageService} from '../common/message.service';
 export class NavComponent implements OnInit {
   notifications: any[];
   messageHistory: MessageHistory[];
-  navigationItems: NavigationItemConfig[] = [
+  navigationItems: any[] = [
     {
       title: 'Card View',
       iconStyleClass: 'fa fa-file',

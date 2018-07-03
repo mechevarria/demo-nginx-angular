@@ -1,9 +1,14 @@
 import {Injectable} from '@angular/core';
-import {Notification, NotificationEvent, NotificationType, NotificationService} from 'patternfly-ng';
+import {InlineNotificationComponent, Notification} from 'patternfly-ng';
+import {NotificationType} from 'patternfly-ng';
+import {NotificationService} from 'patternfly-ng';
+import {NotificationEvent} from 'patternfly-ng';
 import {MessageHistory} from './message-history';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class MessageService {
 
   private messageHistory: MessageHistory[] = [];

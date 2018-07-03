@@ -1,6 +1,6 @@
 # PatternflyNgSeed
 
-Starter seed project for [Angular](https://angular.io/) and [Patternfly](https://www.patternfly.org/).  This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4. [Patternfly/NG](http://www.patternfly.org/patternfly-ng) is already integrated.  The project is also configured to run on [Openshift](https://www.openshift.com/) with no configuration changes necessary.
+Starter seed project for [Angular](https://angular.io/) and [Patternfly](https://www.patternfly.org/).  This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7. [Patternfly/NG](http://www.patternfly.org/patternfly-ng) is already integrated.  The project is also configured to run on [Openshift](https://www.openshift.com/) with no configuration changes necessary.
 
  ![screenshot.png](screenshot.png)
 
@@ -40,7 +40,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 To get started with Angular, this is an excellent official [tutorial](https://angular.io/tutorial)
 
-More help on the Patternfly/NG [components](http://www.patternfly.org/patternfly-ng/)
+More help on the Patternfly/NG [components](http://www.patternfly.org/patternfly-ng/#/action)
 
 Dropdown components were created using [ngx-bootstrap](https://github.com/valor-software/ngx-bootstrap)
 

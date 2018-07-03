@@ -6,15 +6,20 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {AppRoutes} from './app.routes';
-import {CardModule, EmptyStateModule, TableModule, ToastNotificationListModule, NavigationModule, NotificationService} from 'patternfly-ng';
+import {
+  CardModule,
+  EmptyStateModule,
+  NotificationService,
+  TableModule,
+  ToastNotificationListModule,
+  VerticalNavigationModule
+} from 'patternfly-ng';
 import {BsDropdownModule} from 'ngx-bootstrap';
 import {CardComponent} from './card/card.component';
 import {TableComponent} from './table/table.component';
 import {HomeComponent} from './home/home.component';
 import {NavComponent} from './nav/nav.component';
 import {McBreadcrumbsModule} from 'ngx-breadcrumbs';
-import {MessageService} from './common/message.service';
-import {CommentService} from './table/comment.service';
 
 @NgModule({
   declarations: [
@@ -30,16 +35,14 @@ import {CommentService} from './table/comment.service';
     HttpClientModule,
     RouterModule.forRoot(AppRoutes),
     McBreadcrumbsModule.forRoot(),
+    VerticalNavigationModule,
     ToastNotificationListModule,
     EmptyStateModule,
     TableModule,
     CardModule,
-    NavigationModule,
     BsDropdownModule.forRoot()
   ],
   providers: [
-    MessageService,
-    CommentService,
     NotificationService
   ],
   bootstrap: [AppComponent]
