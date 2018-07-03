@@ -6,12 +6,19 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {AppRoutes} from './app.routes';
-import {BasicCardModule, EmptyStateModule, NavigationModule, NotificationModule, TableModule} from 'patternfly-ng';
+import {
+  CardModule,
+  EmptyStateModule,
+  NotificationService,
+  TableModule,
+  ToastNotificationListModule,
+  VerticalNavigationModule
+} from 'patternfly-ng';
 import {BsDropdownModule} from 'ngx-bootstrap';
-import { CardComponent } from './card/card.component';
-import { TableComponent } from './table/table.component';
-import { HomeComponent } from './home/home.component';
-import { NavComponent } from './nav/nav.component';
+import {CardComponent} from './card/card.component';
+import {TableComponent} from './table/table.component';
+import {HomeComponent} from './home/home.component';
+import {NavComponent} from './nav/nav.component';
 import {McBreadcrumbsModule} from 'ngx-breadcrumbs';
 
 @NgModule({
@@ -28,14 +35,16 @@ import {McBreadcrumbsModule} from 'ngx-breadcrumbs';
     HttpClientModule,
     RouterModule.forRoot(AppRoutes),
     McBreadcrumbsModule.forRoot(),
-    NavigationModule,
-    NotificationModule,
+    VerticalNavigationModule,
+    ToastNotificationListModule,
     EmptyStateModule,
     TableModule,
-    BasicCardModule,
+    CardModule,
     BsDropdownModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    NotificationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
