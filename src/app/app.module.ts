@@ -19,7 +19,7 @@ import {CardComponent} from './card/card.component';
 import {TableComponent} from './table/table.component';
 import {HomeComponent} from './home/home.component';
 import {NavComponent} from './nav/nav.component';
-import {McBreadcrumbsModule} from 'ngx-breadcrumbs';
+import {BreadcrumbsModule} from '@exalif/ngx-breadcrumbs';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import {McBreadcrumbsModule} from 'ngx-breadcrumbs';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(AppRoutes),
-    McBreadcrumbsModule.forRoot(),
+    BreadcrumbsModule.forRoot(),
     VerticalNavigationModule,
     ToastNotificationListModule,
     EmptyStateModule,
