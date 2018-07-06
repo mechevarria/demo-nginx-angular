@@ -24,6 +24,10 @@ html {
   background-color: transparent;
 }
 
+.app-pficon-fix {
+  float: none !important;
+}
+
 /* copied from patternfly.css to style ngx-breadcrumbs */
 .breadcrumbs__container {
   padding: 15px 8px 15px 0;
