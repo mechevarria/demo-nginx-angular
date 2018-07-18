@@ -8,6 +8,7 @@ import {MessageService} from '../common/message.service';
 })
 
 export class NavComponent implements OnInit {
+  username = '';
   notifications: any[];
   messageHistory: MessageHistory[];
   navigationItems: any[] = [

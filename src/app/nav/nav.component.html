@@ -34,16 +34,15 @@
 
       <!-- user menu -->
       <li class="dropdown" dropdown>
-        <a class="dropdown-toggle nav-item-iconic" dropdownToggle>
-          <span title="Username" class="fa pficon-user app-pficon-fix"></span>
-          <span class="caret"></span>
-        </a>
-        <div class="dropdown-menu infotip bottom-right" *dropdownMenu>
-          <div class="arrow"></div>
-          <ul class="list-group">
-            <li class="list-group-item app-button"><a>Logout</a></li>
-          </ul>
-        </div>
+        <button class="btn btn-link dropdown-toggle nav-item-iconic" aria-haspopup="true" aria-expanded="false" dropdownToggle>
+          <span title="username" class="fa pficon-user"></span>
+          <span class="dropdown-title">
+            {{username}} <span class="caret"></span>
+          </span>
+        </button>
+        <ul class="dropdown-menu" *dropdownMenu>
+          <li><a class="app-nav-menu">Logout</a></li>
+        </ul>
       </li>
     </ul>
   </div>

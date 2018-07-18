@@ -24,8 +24,8 @@ html {
   background-color: transparent;
 }
 
-.app-pficon-fix {
-  float: none !important;
+.app-nav-menu:hover {
+  cursor: pointer;
 }
 
 /* copied from patternfly.css to style ngx-breadcrumbs */
