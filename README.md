@@ -1,6 +1,6 @@
-# PatternflyNgSeed
+# Frontend Angular
 
-Starter seed project for [Angular](https://angular.io/) and [Patternfly](https://www.patternfly.org/).  This project was generated with [Angular CLI](https://github.com/angular/angular-cli). [Patternfly/NG](http://www.patternfly.org/patternfly-ng) is already integrated.  The project is also configured to run on [Openshift](https://www.openshift.com/) with no configuration changes necessary.
+Starter seed project for [Angular](https://angular.io/) and [Bootstrap](https://getbootstrap.com/).  This project was generated with [Angular CLI](https://github.com/angular/angular-cli). [Bootswatch](https://bootswatch.com/) is already integrated.  The project is also configured to run on [Openshift](https://www.openshift.com/) with no configuration changes necessary.
 
  ![screenshot.png](screenshot.png)
 
@@ -28,8 +28,8 @@ For local development you can use [MiniShift](https://docs.openshift.org/latest/
 ### Create the New Application
 
 Select `Add to Project -> Catalog -> JavaScript -> Node.js`.  Make sure the version is **6**
-* Name **patternfly-ng-seed**
-* Git Repository URL **https://github.com/mechevarria/patternfly-ng-seed**
+* Name **frontend-admin**
+* Git Repository URL **https://github.com/mechevarria/frontend-admin**
 * Click create
 
 The default build will run a `npm install` command and then `npm run start`.
@@ -39,8 +39,6 @@ The default build will run a `npm install` command and then `npm run start`.
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 To get started with Angular, this is an excellent official [tutorial](https://angular.io/tutorial)
-
-More help on the Patternfly/NG [components](http://www.patternfly.org/patternfly-ng/#/action)
 
 Dropdown components were created using [ngx-bootstrap](https://github.com/valor-software/ngx-bootstrap)
 

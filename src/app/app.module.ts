@@ -6,20 +6,15 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {AppRoutes} from './app.routes';
-import {
-  CardModule,
-  EmptyStateModule,
-  NotificationService,
-  TableModule,
-  ToastNotificationListModule,
-  VerticalNavigationModule
-} from 'patternfly-ng';
+import {CardModule, NotificationService, TableModule, ToastNotificationListModule, VerticalNavigationModule} from 'patternfly-ng';
 import {BsDropdownModule} from 'ngx-bootstrap';
 import {CardComponent} from './card/card.component';
 import {TableComponent} from './table/table.component';
-import {HomeComponent} from './home/home.component';
 import {NavComponent} from './nav/nav.component';
+import {FooterComponent} from './footer/footer.component';
 import {BreadcrumbsModule} from '@exalif/ngx-breadcrumbs';
+import {HomeComponent} from './home/home.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -27,17 +22,18 @@ import {BreadcrumbsModule} from '@exalif/ngx-breadcrumbs';
     CardComponent,
     TableComponent,
     HomeComponent,
-    NavComponent
+    NavComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    FontAwesomeModule,
     HttpClientModule,
     RouterModule.forRoot(AppRoutes),
     BreadcrumbsModule.forRoot(),
     VerticalNavigationModule,
     ToastNotificationListModule,
-    EmptyStateModule,
     TableModule,
     CardModule,
     BsDropdownModule.forRoot()
@@ -47,4 +43,5 @@ import {BreadcrumbsModule} from '@exalif/ngx-breadcrumbs';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

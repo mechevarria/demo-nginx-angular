@@ -1,4 +1,12 @@
 <div *ngIf="route.children.length ===0">
-  <pfng-empty-state [config]="emptyStateConfig"></pfng-empty-state>
+  <div class="jumbotron">
+    <h1 class="mt-5">Welcome to the Angular Frontend</h1>
+    <p class="lead"><fa-icon [icon]="icon"></fa-icon>&nbsp;&nbsp;Select one of the links to get started
+    </p>
+    <p>
+
+    </p>
+  </div>
+
 </div>
 <router-outlet></router-outlet>

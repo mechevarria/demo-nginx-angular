@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {EmptyStateConfig} from 'patternfly-ng';
 import {ActivatedRoute} from '@angular/router';
+import { faHandPointer } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +8,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  emptyStateConfig: EmptyStateConfig = {
-    iconStyleClass: 'fa fa-arrow-circle-left',
-    title: 'PatternFly-Ng Seed',
-    info: 'Click one of the links on the left to get started.'
-  };
+  icon = faHandPointer;
 
   constructor(public route: ActivatedRoute) {
   }

@@ -4,7 +4,7 @@
 
 source_location=.
 builder_image=rhscl/nodejs-8-rhel7
-tag=s2i-build/patternfly-ng-seed
+tag=s2i-build/frontend-angular
 flags=-c
 
 s2i build ${source_location} ${builder_image} ${tag} ${flags}

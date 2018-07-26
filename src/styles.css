@@ -1,19 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
-body {
-  background-color: #f5f5f5;
-  padding-top: 60px;
-  margin-bottom: 60px;
-}
-
-.app-button {
-  cursor: pointer;
-}
-
+/* Sticky footer styles
+-------------------------------------------------- */
 html {
   position: relative;
   min-height: 100%;
 }
-
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
 .footer {
   position: absolute;
   bottom: 0;
@@ -21,32 +15,56 @@ html {
   /* Set the fixed height of the footer here */
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
-  background-color: transparent;
+  background-color: #f5f5f5;
 }
 
-.app-nav-menu:hover {
-  cursor: pointer;
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.app-container {
+  padding: 100px 15px 0;
 }
 
-/* copied from patternfly.css to style ngx-breadcrumbs */
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+/* copied from bootstrap.css to style ngx-breadcrumbs */
 .breadcrumbs__container {
-  padding: 15px 8px 15px 0;
-  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
   list-style: none;
-  background-color: transparent;
-  border-radius: 1px;
+  background-color: #eee;
+  border-radius: 0.25rem;
 }
 .breadcrumbs__container > li {
-  display: inline-block;
+  padding-left: 0.5rem;
 }
 .breadcrumbs__container > li + li:before {
-  color: #9c9c9c;
-  content: "\f105";
-  font-family: "FontAwesome";
-  font-size: 11px;
-  padding: 0 9px 0 7px;
+  display: inline-block;
+  padding-right: 0.5rem;
+  color: #666;
+  content: ">";
+}
+.breadcrumbs__container > li + li:hover::before {
+  text-decoration: underline;
+}
+
+.breadcrumbs__container > li + li:hover::before {
+  text-decoration: none;
 }
 .breadcrumbs__container > .active {
-  color: #4d5258;
-  font-weight: 600;
+  color: #666;
 }

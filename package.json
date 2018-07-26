@@ -1,12 +1,12 @@
 {
-  "name": "patternfly-ng-seed",
-  "description": "patternfly-ng seed project based on angular-cli scaffolding",
+  "name": "frontend-angular",
+  "description": "bootstrap/angular seed project based on angular-cli scaffolding",
   "author": "Mike Echevarria <mechevar@redhat.com>",
-  "version": "2.1.0",
+  "version": "0.1.0",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mechevarria/patternfly-ng-seed.git"
+    "url": "https://github.com/mechevarria/frontend-angular.git"
   },
   "ng": "node_modules/@angular/cli/bin/ng",
   "scripts": {
@@ -33,7 +33,11 @@
     "@angular/platform-browser-dynamic": "~6.1.0",
     "@angular/router": "~6.1.0",
     "@exalif/ngx-breadcrumbs": "^6.0.1",
+    "@fortawesome/angular-fontawesome": "^0.1.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.2",
+    "@fortawesome/free-solid-svg-icons": "^5.2.0",
     "@types/node": "~10.5.3",
+    "bootswatch": "^4.1.3",
     "codelyzer": "^4.4.2",
     "compression": "^1.7.3",
     "core-js": "^2.5.7",
