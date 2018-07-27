@@ -1,11 +1,5 @@
-<pfng-toast-notification-list
-  [notifications]="notifications"
-  (onCloseSelect)="messageService.close($event);"
-  [showClose]="true">
-</pfng-toast-notification-list>
-
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark app-navbar">
     <a class="navbar-brand" routerLink="home">
       <img src="assets/img/redhat.png" class="d-inline-block align-top" alt="redhat logo">
     </a>
@@ -16,10 +10,14 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="home/card" routerLinkActive="current">Card</a>
+          <a class="nav-link" routerLink="home/card" routerLinkActive="current">
+            <fa-icon [icon]="cardIcon"></fa-icon>&nbsp;&nbsp;Card
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="home/table" routerLinkActive="current">Table</a>
+          <a class="nav-link" routerLink="home/table" routerLinkActive="current">
+            <fa-icon [icon]="tableIcon"></fa-icon>&nbsp;&nbsp;Table
+          </a>
         </li>
       </ul>
 
@@ -27,59 +25,36 @@
         <li class="nav-item dropdown" dropdown placement="bottom right">
           <a class="nav-link dropdown-toggle" href role="button" aria-haspopup="true" aria-expanded="false"
              dropdownToggle (click)="false">
-            Dropdown
+            <fa-icon [icon]="flagIcon"></fa-icon>
+            <span class="badge" *ngIf="messageHistory.length > 0">{{messageHistory.length}}</span>
           </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" *dropdownMenu>
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-          </div>
+          <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
+            <li role="menuitem" *ngFor="let item of messageHistory">
+              <a class="dropdown-item">
+                <fa-icon [icon]="item.class"></fa-icon> {{item.msg}}
+              </a>
+            </li>
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem">
+              <a class="dropdown-item app-nav-action" (click)="messageService.clear();">
+                <fa-icon [icon]="eraseIcon"></fa-icon> Clear Messages
+              </a>
+            </li>
+          </ul>
         </li>
         <li class="nav-item dropdown" dropdown placement="bottom right">
           <a class="nav-link dropdown-toggle" href role="button" aria-haspopup="true" aria-expanded="false"
              dropdownToggle (click)="false">
-            Username
+            <fa-icon [icon]="userIcon"></fa-icon>
+            {{username}}
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" *dropdownMenu>
-            <a class="dropdown-item">Logout</a>
+            <a class="dropdown-item app-nav-action">
+              <fa-icon [icon]="logoutIcon"></fa-icon> Logout
+            </a>
           </div>
         </li>
       </ul>
-
-      <!-- notifications menu -->
-      <!--<ul class="mt-2 mt-md-0">-->
-
-      <!--<li class="dropdown" dropdown>-->
-      <!--<a class="dropdown-toggle nav-item-iconic" dropdownToggle>-->
-      <!--<span title="Notifications" class="fa pficon-flag"></span>-->
-      <!--<span class="badge" *ngIf="messageHistory.length > 0">{{messageHistory.length}}</span>-->
-      <!--</a>-->
-      <!--<div class="dropdown-menu infotip bottom-right" *dropdownMenu>-->
-      <!--<div class="arrow"></div>-->
-      <!--<ul class="list-group">-->
-      <!--<li class="list-group-item" *ngFor="let item of messageHistory">-->
-      <!--<span class="i pficon {{item.class}}"></span> {{item.msg}}-->
-      <!--</li>-->
-      <!--</ul>-->
-      <!--<div class="list-group-item">-->
-      <!--<a class="app-button" (click)="messageService.clear();">Clear Messages</a>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</li>-->
-      <!--&lt;!&ndash; user menu &ndash;&gt;-->
-      <!--<li class="dropdown" dropdown>-->
-      <!--<button class="btn btn-link dropdown-toggle nav-item-iconic" aria-haspopup="true" aria-expanded="false"-->
-      <!--dropdownToggle>-->
-      <!--<span title="username" class="fa pficon-user"></span>-->
-      <!--<span class="dropdown-title">-->
-      <!--{{username}} <span class="caret"></span>-->
-      <!--</span>-->
-      <!--</button>-->
-      <!--<ul class="dropdown-menu" *dropdownMenu>-->
-      <!--<li><a class="app-nav-menu">Logout</a></li>-->
-      <!--</ul>-->
-      <!--</li>-->
-      <!--</ul>-->
-
     </div>
   </nav>
 </header>

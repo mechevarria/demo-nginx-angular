@@ -1,30 +1,23 @@
 import {Injectable} from '@angular/core';
-import {InlineNotificationComponent, Notification} from 'patternfly-ng';
-import {NotificationType} from 'patternfly-ng';
-import {NotificationService} from 'patternfly-ng';
-import {NotificationEvent} from 'patternfly-ng';
 import {MessageHistory} from './message-history';
-
+import {ToastrService} from 'ngx-toastr';
+import {faCheckCircle} from '@fortawesome/free-solid-svg-icons';
+import {faTimesCircle} from '@fortawesome/free-solid-svg-icons';
+import {faInfoCircle} from '@fortawesome/free-solid-svg-icons';
+import {faExclamationCircle} from '@fortawesome/free-solid-svg-icons';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
 
+  private successIcon = faCheckCircle;
+  private errorIcon = faTimesCircle;
+  private infoIcon = faInfoCircle;
+  private warningIcon = faExclamationCircle;
   private messageHistory: MessageHistory[] = [];
 
-  // css classes for the notification dropdown menu
-  private classMap: Map<string, string> = new Map()
-    .set(NotificationType.SUCCESS, 'pficon-ok')
-    .set(NotificationType.INFO, 'pficon-info')
-    .set(NotificationType.WARNING, 'pficon-warning-triangle-o')
-    .set(NotificationType.DANGER, 'pficon-error-circle-o');
-
-  constructor(private notificationService: NotificationService) {
-  }
-
-  get(): Notification[] {
-    return this.notificationService.getNotifications();
+  constructor(private toastr: ToastrService) {
   }
 
   getHistory(): MessageHistory[] {
@@ -32,45 +25,34 @@ export class MessageService {
   }
 
   success(msg: string): void {
-    this.notify(NotificationType.SUCCESS, msg);
+    this.toastr.success(msg);
+    this.addToHistory(this.successIcon, msg);
   }
 
   error(msg: string): void {
-    this.notify(NotificationType.DANGER, msg);
+    this.addToHistory(this.errorIcon, msg);
   }
 
   info(msg: string): void {
-    this.notify(NotificationType.INFO, msg);
+    this.addToHistory(this.infoIcon, msg);
   }
 
   warning(msg: string): void {
-    this.notify(NotificationType.WARNING, msg);
+    this.addToHistory(this.warningIcon, msg);
   }
 
-  private notify(type: string, msg: string): void {
+  private addToHistory(type: any, msg: string): void {
     // make the delay to dropdown the same as the notification fade
-    setTimeout(function (history, map) {
+    setTimeout((history) => {
       history.push({
-        class: map.get(type),
+        class: type,
         msg: msg
       });
-    }, 8000, this.messageHistory, this.classMap);
-
-
-    this.notificationService.message(type,
-      null,
-      msg,
-      false,
-      null,
-      null);
+    }, 5000, this.messageHistory);
   }
 
   clear(): void {
     this.messageHistory.length = 0;
-  }
-
-  close($event: NotificationEvent): void {
-    this.notificationService.remove($event.notification);
   }
 
 }

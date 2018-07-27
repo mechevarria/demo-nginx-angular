@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {MessageHistory} from '../common/message-history';
 import {MessageService} from '../common/message.service';
+import {faFile} from '@fortawesome/free-solid-svg-icons';
+import {faTable} from '@fortawesome/free-solid-svg-icons';
+import {faFlag} from '@fortawesome/free-solid-svg-icons';
+import {faUser} from '@fortawesome/free-solid-svg-icons';
+import {faEraser} from '@fortawesome/free-solid-svg-icons';
+import {faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-nav',
@@ -8,28 +14,19 @@ import {MessageService} from '../common/message.service';
 })
 
 export class NavComponent implements OnInit {
+  cardIcon = faFile;
+  tableIcon = faTable;
+  flagIcon = faFlag;
+  userIcon = faUser;
+  eraseIcon = faEraser;
+  logoutIcon = faSignOutAlt;
   username = '';
-  notifications: any[];
   messageHistory: MessageHistory[];
-  navigationItems: any[] = [
-    {
-      title: 'Card View',
-      iconStyleClass: 'fa fa-file',
-      url: '/home/card'
-    },
-    {
-      title: 'Table View',
-      iconStyleClass: 'fa fa-table',
-      url: '/home/table'
-    }
-  ];
 
   constructor(public messageService: MessageService) {
   }
 
   ngOnInit(): void {
-    this.notifications = this.messageService.get();
-
     this.messageHistory = this.messageService.getHistory();
   }
 }

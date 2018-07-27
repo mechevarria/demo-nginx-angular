@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import { faHandPointer } from '@fortawesome/free-solid-svg-icons';
+import {faHandPointer} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',

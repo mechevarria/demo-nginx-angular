@@ -6,7 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {AppRoutes} from './app.routes';
-import {CardModule, NotificationService, TableModule, ToastNotificationListModule, VerticalNavigationModule} from 'patternfly-ng';
+import {CardModule, NotificationService, TableModule, VerticalNavigationModule} from 'patternfly-ng';
 import {BsDropdownModule} from 'ngx-bootstrap';
 import {CardComponent} from './card/card.component';
 import {TableComponent} from './table/table.component';
@@ -15,6 +15,9 @@ import {FooterComponent} from './footer/footer.component';
 import {BreadcrumbsModule} from '@exalif/ngx-breadcrumbs';
 import {HomeComponent} from './home/home.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {ToastrModule} from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -33,10 +36,12 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     RouterModule.forRoot(AppRoutes),
     BreadcrumbsModule.forRoot(),
     VerticalNavigationModule,
-    ToastNotificationListModule,
     TableModule,
     CardModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     NotificationService

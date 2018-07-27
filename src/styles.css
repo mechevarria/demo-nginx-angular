@@ -18,13 +18,17 @@ body {
   background-color: #f5f5f5;
 }
 
-
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
 
-.app-container {
-  padding: 100px 15px 0;
+.app-navbar {
+  padding-bottom: 4px !important;
+  padding-top: 4px !important;
+}
+
+.app-nav-action {
+  cursor: pointer;
 }
 
 .footer > .container {
@@ -32,22 +36,17 @@ body {
   padding-left: 15px;
 }
 
-code {
-  font-size: 80%;
-}
-
 /* copied from bootstrap.css to style ngx-breadcrumbs */
 .breadcrumbs__container {
+  padding: 75px 12px 12px 12px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: 0.75rem 1rem;
   margin-bottom: 1rem;
   list-style: none;
   background-color: #eee;
-  border-radius: 0.25rem;
 }
 .breadcrumbs__container > li {
   padding-left: 0.5rem;
@@ -56,7 +55,7 @@ code {
   display: inline-block;
   padding-right: 0.5rem;
   color: #666;
-  content: ">";
+  content: "/";
 }
 .breadcrumbs__container > li + li:hover::before {
   text-decoration: underline;
