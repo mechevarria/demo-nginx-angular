@@ -1,8 +1,13 @@
 <div *ngIf="route.children.length ===0">
   <div class="jumbotron">
-    <h1 class="mt-5">Welcome to the Angular Frontend</h1>
+    <h1 class="display-4">Angular Starter</h1>
+    <p class="lead">Select one of the links up top to get started with this web application</p>
+    <hr class="my-4">
+    <p>This application is built to run seamlessly between local environments and a container management platform like OpenShift</p>
     <p class="lead">
-      <fa-icon [icon]="icon"></fa-icon>&nbsp;&nbsp;Select one of the links to get started
+      <a target="_blank" href="https://www.openshift.com/products/container-platform/" role="button">
+        <img src="assets/img/openshift.svg" width="150" alt="openshift">
+      </a>
     </p>
   </div>
 </div>

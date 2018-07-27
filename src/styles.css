@@ -38,7 +38,7 @@ body {
 
 /* copied from bootstrap.css to style ngx-breadcrumbs */
 .breadcrumbs__container {
-  padding: 75px 12px 12px 12px;
+  padding: 70px 12px 12px 12px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
