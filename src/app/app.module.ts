@@ -7,7 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {AppRoutes} from './app.routes';
 import {CardModule, NotificationService, TableModule, VerticalNavigationModule} from 'patternfly-ng';
-import {BsDropdownModule} from 'ngx-bootstrap';
+import {BsDropdownModule,CollapseModule} from 'ngx-bootstrap';
 import {CardComponent} from './card/card.component';
 import {TableComponent} from './table/table.component';
 import {NavComponent} from './nav/nav.component';
@@ -39,9 +39,13 @@ import {CommonModule} from '@angular/common';
     TableModule,
     CardModule,
     BsDropdownModule.forRoot(),
+    CollapseModule.forRoot(),
     CommonModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({
+      closeButton: true,
+      progressBar: true
+    })
   ],
   providers: [
     NotificationService

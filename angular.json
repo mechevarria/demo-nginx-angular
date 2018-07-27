@@ -23,9 +23,7 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootswatch/dist/materia/bootstrap.css",
-              "node_modules/ngx-toastr/toastr.css",
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": [
             ]

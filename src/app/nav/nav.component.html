@@ -1,13 +1,13 @@
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark app-navbar">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary app-navbar">
     <a class="navbar-brand" routerLink="home">
       <img src="assets/img/redhat.svg" width="112" class="d-inline-block align-top" alt="redhat logo">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="collapse navbar-collapse" [collapse]="isCollapsed">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" routerLink="home/card" routerLinkActive="current">
@@ -17,6 +17,11 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="home/table" routerLinkActive="current">
             <fa-icon [icon]="tableIcon"></fa-icon>&nbsp;&nbsp;Table
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/mechevarria" target="_blank">
+            <fa-icon [icon]="githubIcon"></fa-icon>&nbsp;&nbsp;Github
           </a>
         </li>
       </ul>

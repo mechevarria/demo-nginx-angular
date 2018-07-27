@@ -1,14 +1,17 @@
 <div *ngIf="route.children.length ===0">
-  <div class="jumbotron">
-    <h1 class="display-4">Angular Starter</h1>
-    <p class="lead">Select one of the links up top to get started with this web application</p>
-    <hr class="my-4">
-    <p>This application is built to run seamlessly between local environments and a container management platform like OpenShift</p>
-    <p class="lead">
-      <a target="_blank" href="https://www.openshift.com/products/container-platform/" role="button">
-        <img src="assets/img/openshift.svg" width="150" alt="openshift">
-      </a>
-    </p>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-5">Angular Starter</h1>
+      <p class="lead">Select one of the links up top to get started with this web application</p>
+      <hr class="my-4">
+      <p>This application is built to run seamlessly between local environments and a container management platform like
+        OpenShift</p>
+      <p class="lead">
+        <a target="_blank" href="https://www.openshift.com/products/container-platform/" role="button">
+          <img src="assets/img/openshift.svg" width="150" alt="openshift">
+        </a>
+      </p>
+    </div>
   </div>
 </div>
 <router-outlet></router-outlet>

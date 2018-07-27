@@ -1,12 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MessageHistory} from '../common/message-history';
 import {MessageService} from '../common/message.service';
-import {faFile} from '@fortawesome/free-solid-svg-icons';
-import {faTable} from '@fortawesome/free-solid-svg-icons';
-import {faFlag} from '@fortawesome/free-solid-svg-icons';
-import {faUser} from '@fortawesome/free-solid-svg-icons';
-import {faEraser} from '@fortawesome/free-solid-svg-icons';
-import {faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
+import {faEraser, faFile, faFlag, faSignOutAlt, faTable, faUser} from '@fortawesome/free-solid-svg-icons';
+import {faGithub} from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-nav',
@@ -20,6 +16,8 @@ export class NavComponent implements OnInit {
   userIcon = faUser;
   eraseIcon = faEraser;
   logoutIcon = faSignOutAlt;
+  githubIcon = faGithub;
+  isCollapsed = true;
   username = '';
   messageHistory: MessageHistory[];
 
