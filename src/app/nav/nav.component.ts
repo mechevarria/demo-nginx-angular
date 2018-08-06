@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MessageHistory} from '../common/message-history';
 import {MessageService} from '../common/message.service';
-import {faEraser, faFile, faFlag, faSignOutAlt, faTable, faUser} from '@fortawesome/free-solid-svg-icons';
+import {faEraser, faChartPie, faFlag, faSignOutAlt, faTable, faUser} from '@fortawesome/free-solid-svg-icons';
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
 
 @Component({
@@ -10,7 +10,7 @@ import {faGithub} from '@fortawesome/free-brands-svg-icons';
 })
 
 export class NavComponent implements OnInit {
-  cardIcon = faFile;
+  chartIcon = faChartPie;
   tableIcon = faTable;
   flagIcon = faFlag;
   userIcon = faUser;

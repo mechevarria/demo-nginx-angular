@@ -1,21 +1,20 @@
-<div class="card-pf card-pf-accented">
-  <div class="card-pf-body">
-    <div class="form-group">
-      <button type="button" class="btn btn-primary" (click)="load()">
-        <i class="fa fa-refresh"></i>&nbsp;Load
-      </button>
-      &nbsp;
-      <button type="button" class="btn btn-default" (click)="clear()">
-        <i class="fa fa-eraser"></i>&nbsp;Clear
-      </button>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card bg-light mb-3">
+      <div class="card-header">Comments</div>
+      <div class="card-body">
+        <div class="form-group card-text">
+          <button type="button" class="btn btn-primary" (click)="load()">
+            <i class="fa fa-refresh"></i>&nbsp;Load
+          </button>
+          &nbsp;
+          <button type="button" class="btn btn-default" (click)="clear()">
+            <i class="fa fa-eraser"></i>&nbsp;Clear
+          </button>
+        </div>
+        <div class="card-text">
+        </div>
+      </div>
     </div>
-
-    <pfng-table
-      [columns]="columns"
-      [config]="tableConfig"
-      [rows]="rows"
-      (onPageNumberChange)="handlePage($event)"
-      (onPageSizeChange)="handlePage($event)">
-    </pfng-table>
   </div>
 </div>

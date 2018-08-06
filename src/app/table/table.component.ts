@@ -2,7 +2,6 @@ import {AfterViewInit, Component} from '@angular/core';
 import {MessageService} from '../common/message.service';
 import {CommentService} from './comment.service';
 import {Comment} from './comment';
-import {PaginationConfig, PaginationEvent, TableConfig} from 'patternfly-ng';
 
 @Component({
   selector: 'app-table',
@@ -24,26 +23,6 @@ export class TableComponent implements AfterViewInit {
     {name: 'Body', prop: 'body', sortable: false}
   ];
 
-  paginationConfig: PaginationConfig = {
-    pageSize: 5,
-    pageNumber: 1,
-    pageSizeIncrements: [5, 50, 500]
-  };
-
-  tableConfig: TableConfig = {
-    showCheckbox: false,
-    paginationConfig: this.paginationConfig
-  };
-
-  handlePage($event: PaginationEvent): void {
-    this.updateRows();
-  }
-
-  updateRows(): void {
-    this.rows = this.allRows.slice((this.paginationConfig.pageNumber - 1) * this.paginationConfig.pageSize,
-      this.paginationConfig.totalItems).slice(0, this.paginationConfig.pageSize);
-  }
-
   load(): void {
     this.commentService.getComments()
       .subscribe(res => {
@@ -51,8 +30,6 @@ export class TableComponent implements AfterViewInit {
 
         if (this.allRows != null) {
           this.messageService.success(`Successfully loaded ${this.allRows.length} comments from service`);
-          this.paginationConfig.totalItems = this.allRows.length;
-          this.updateRows();
         }
 
       });
@@ -60,7 +37,6 @@ export class TableComponent implements AfterViewInit {
 
   clear(showMsg: boolean = true): void {
     this.allRows = [];
-    this.updateRows();
 
     if (showMsg) {
       this.messageService.info('Cleared data');

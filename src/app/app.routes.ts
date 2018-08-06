@@ -1,7 +1,7 @@
 import {Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
-import {CardComponent} from './card/card.component';
 import {TableComponent} from './table/table.component';
+import {ChartsComponent} from './charts/charts.component';
 
 export const AppRoutes: Routes = [
   {
@@ -12,10 +12,10 @@ export const AppRoutes: Routes = [
     },
     children: [
       {
-        path: 'card',
-        component: CardComponent,
+        path: 'charts',
+        component: ChartsComponent,
         data: {
-          breadcrumb: 'Card'
+          breadcrumb: 'Charts'
         }
       },
       {

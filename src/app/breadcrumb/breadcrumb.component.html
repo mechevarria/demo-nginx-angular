@@ -1,14 +1,19 @@
-<div class="app-breadcrumb-container border-bottom mb-3">
-  <div class="row">
-    <div class="col-sm-6">
-      <h1 class="h2 ml-3 mt-1">{{title}}</h1>
-    </div>
-    <div class="col-sm-6">
-      <ol class="breadcrumb float-right">
-        <li *ngFor="let breadcrumb of breadcrumbs | async; let last = last" class="breadcrumb-item" [ngClass]="{'active': last}" >
-          <a *ngIf="!last" [routerLink]="[breadcrumb.url]">{{breadcrumb.label}}</a>
-          <label *ngIf="last">{{breadcrumb.label}}</label>
-      </ol>
-    </div>
+<div class="row">
+  <div class="col-sm-6">
+    <h1 class="h2 ml-3 mt-2">{{title}}</h1>
+  </div>
+  <div class="col-sm-6">
+    <ol class="breadcrumb float-right">
+      <li *ngFor="let breadcrumb of breadcrumbs | async; let last = last; let first = first" class="breadcrumb-item"
+          [ngClass]="{'active': last}">
+        <a *ngIf="!last" [routerLink]="[breadcrumb.url]">
+          <fa-icon *ngIf="first" [icon]="homeIcon"></fa-icon>
+          {{breadcrumb.label}}
+        </a>
+        <label *ngIf="last">
+          <fa-icon *ngIf="first" [icon]="homeIcon"></fa-icon>
+          {{breadcrumb.label}}
+        </label>
+    </ol>
   </div>
 </div>

@@ -6,9 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {AppRoutes} from './app.routes';
-import {CardModule, NotificationService, TableModule, VerticalNavigationModule} from 'patternfly-ng';
 import {BsDropdownModule, CollapseModule} from 'ngx-bootstrap';
-import {CardComponent} from './card/card.component';
 import {TableComponent} from './table/table.component';
 import {NavComponent} from './nav/nav.component';
 import {BreadcrumbsModule} from '@exalif/ngx-breadcrumbs';
@@ -18,15 +16,17 @@ import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CommonModule} from '@angular/common';
 import {BreadcrumbComponent} from './breadcrumb/breadcrumb.component';
+import {ChartsComponent} from './charts/charts.component';
+import {ChartsModule} from 'ng2-charts';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent,
     TableComponent,
     HomeComponent,
     NavComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    ChartsComponent
   ],
   imports: [
     BrowserModule,
@@ -35,21 +35,17 @@ import {BreadcrumbComponent} from './breadcrumb/breadcrumb.component';
     HttpClientModule,
     RouterModule.forRoot(AppRoutes),
     BreadcrumbsModule.forRoot(),
-    VerticalNavigationModule,
-    TableModule,
-    CardModule,
     BsDropdownModule.forRoot(),
     CollapseModule.forRoot(),
     CommonModule,
     BrowserAnimationsModule,
+    ChartsModule,
     ToastrModule.forRoot({
       closeButton: true,
       progressBar: true
     })
   ],
-  providers: [
-    NotificationService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
