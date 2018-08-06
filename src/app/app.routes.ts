@@ -8,24 +8,21 @@ export const AppRoutes: Routes = [
     path: 'home',
     component: HomeComponent,
     data: {
-      breadcrumbs: true,
-      text: 'Home'
+      breadcrumb: 'Home'
     },
     children: [
       {
         path: 'card',
         component: CardComponent,
         data: {
-          breadcrumbs: true,
-          text: 'Card'
+          breadcrumb: 'Card'
         }
       },
       {
         path: 'table',
         component: TableComponent,
         data: {
-          breadcrumbs: true,
-          text: 'Table'
+          breadcrumb: 'Table'
         }
       }
     ]

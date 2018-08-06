@@ -7,17 +7,17 @@ import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {AppRoutes} from './app.routes';
 import {CardModule, NotificationService, TableModule, VerticalNavigationModule} from 'patternfly-ng';
-import {BsDropdownModule,CollapseModule} from 'ngx-bootstrap';
+import {BsDropdownModule, CollapseModule} from 'ngx-bootstrap';
 import {CardComponent} from './card/card.component';
 import {TableComponent} from './table/table.component';
 import {NavComponent} from './nav/nav.component';
-import {FooterComponent} from './footer/footer.component';
 import {BreadcrumbsModule} from '@exalif/ngx-breadcrumbs';
 import {HomeComponent} from './home/home.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CommonModule} from '@angular/common';
+import {BreadcrumbComponent} from './breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import {CommonModule} from '@angular/common';
     TableComponent,
     HomeComponent,
     NavComponent,
-    FooterComponent
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,
