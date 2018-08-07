@@ -30,14 +30,17 @@ export class MessageService {
   }
 
   error(msg: string): void {
+    this.toastr.error(msg);
     this.addToHistory(this.errorIcon, msg);
   }
 
   info(msg: string): void {
+    this.toastr.info(msg);
     this.addToHistory(this.infoIcon, msg);
   }
 
   warning(msg: string): void {
+    this.toastr.warning(msg);
     this.addToHistory(this.warningIcon, msg);
   }
 

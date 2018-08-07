@@ -1,49 +1,81 @@
-import {AfterViewInit, Component} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MessageService} from '../common/message.service';
 import {CommentService} from './comment.service';
 import {Comment} from './comment';
+import {Subject} from 'rxjs';
+import {DataTableDirective} from 'angular-datatables';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html'
 })
-export class TableComponent implements AfterViewInit {
+export class TableComponent implements OnDestroy, OnInit, AfterViewInit {
 
   constructor(private messageService: MessageService, private commentService: CommentService) {
   }
 
-  rows: Comment[] = [];
-  allRows: Comment[] = [];
+  @ViewChild(DataTableDirective)
+  dtElement: DataTableDirective;
 
-  columns: any[] = [
-    {name: 'ID', prop: 'id', sortable: true},
-    {name: 'Post ID', prop: 'postId', sortable: true},
-    {name: 'Name', prop: 'name', sortable: false},
-    {name: 'E-Mail', prop: 'email', sortable: false},
-    {name: 'Body', prop: 'body', sortable: false}
-  ];
+  dtOptions: DataTables.Settings = {};
+  comments: Comment[] = [];
+  dtTrigger = new Subject();
 
   load(): void {
     this.commentService.getComments()
       .subscribe(res => {
-        this.allRows = res;
+        this.comments = res;
+        this.rerender();
 
-        if (this.allRows != null) {
-          this.messageService.success(`Successfully loaded ${this.allRows.length} comments from service`);
+        if (this.comments != null) {
+          this.messageService.success(`Successfully loaded ${this.comments.length} comments from service`);
         }
 
       });
   }
 
-  clear(showMsg: boolean = true): void {
-    this.allRows = [];
+  rerender(): void {
+    if (this.dtElement.dtInstance) {
+      this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+        // Destroy the table first
+        dtInstance.destroy();
 
-    if (showMsg) {
-      this.messageService.info('Cleared data');
+        // Call the dtTrigger to rerender again
+        this.dtTrigger.next();
+      });
+    } else {
+      this.dtTrigger.next();
     }
   }
 
+  clear(): void {
+    this.comments = [];
+    this.rerender();
+    this.messageService.info('Cleared data');
+  }
+
+  ngOnDestroy(): void {
+    // Do not forget to unsubscribe the event
+    this.dtTrigger.unsubscribe();
+  }
+
+  ngOnInit() {
+    this.dtOptions = {
+      pagingType: 'simple_numbers',
+      responsive: true,
+      pageLength: 10,
+      language: {
+        lengthMenu: 'Display <select class="custom-select">' +
+          '<option value="10">10</option>' +
+          '<option value="30">30</option>' +
+          '<option value="-1">All</option>' +
+          '</select>'
+      }
+    };
+  }
+
   ngAfterViewInit() {
+    this.rerender();
   }
 
 }

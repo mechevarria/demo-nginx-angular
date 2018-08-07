@@ -9,7 +9,6 @@ import {AppRoutes} from './app.routes';
 import {BsDropdownModule, CollapseModule} from 'ngx-bootstrap';
 import {TableComponent} from './table/table.component';
 import {NavComponent} from './nav/nav.component';
-import {BreadcrumbsModule} from '@exalif/ngx-breadcrumbs';
 import {HomeComponent} from './home/home.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {ToastrModule} from 'ngx-toastr';
@@ -18,6 +17,7 @@ import {CommonModule} from '@angular/common';
 import {BreadcrumbComponent} from './breadcrumb/breadcrumb.component';
 import {ChartsComponent} from './charts/charts.component';
 import {ChartsModule} from 'ng2-charts';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -34,12 +34,12 @@ import {ChartsModule} from 'ng2-charts';
     FontAwesomeModule,
     HttpClientModule,
     RouterModule.forRoot(AppRoutes),
-    BreadcrumbsModule.forRoot(),
     BsDropdownModule.forRoot(),
     CollapseModule.forRoot(),
     CommonModule,
     BrowserAnimationsModule,
     ChartsModule,
+    DataTablesModule,
     ToastrModule.forRoot({
       closeButton: true,
       progressBar: true
