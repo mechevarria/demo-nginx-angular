@@ -17,7 +17,8 @@ import {CommonModule} from '@angular/common';
 import {BreadcrumbComponent} from './breadcrumb/breadcrumb.component';
 import {ChartsComponent} from './charts/charts.component';
 import {ChartsModule} from 'ng2-charts';
-import { DataTablesModule } from 'angular-datatables';
+import {DataTablesModule} from 'angular-datatables';
+import {FormComponent} from './form/form.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DataTablesModule } from 'angular-datatables';
     HomeComponent,
     NavComponent,
     BreadcrumbComponent,
-    ChartsComponent
+    ChartsComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@
 @import '~bootstrap/scss/mixins';
 @import '~ngx-toastr/toastr-bs4-alert';
 @import '~datatables.net-bs4/css/dataTables.bootstrap4.min.css';
+@import '~datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css';
 
 /* Custom page CSS */
 body {
@@ -31,4 +32,8 @@ body {
   padding-bottom: 6px !important;
   background-color: white;
   border-radius: 0;
+}
+
+.app-table {
+  width: 100% !important;
 }

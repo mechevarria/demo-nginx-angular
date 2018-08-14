@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MessageHistory} from '../common/message-history';
 import {MessageService} from '../common/message.service';
 import {faEraser, faChartPie, faFlag, faSignOutAlt, faTable, faUser} from '@fortawesome/free-solid-svg-icons';
-import {faGithub} from '@fortawesome/free-brands-svg-icons';
+import {faGithub, faWpforms} from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-nav',
@@ -17,6 +17,7 @@ export class NavComponent implements OnInit {
   eraseIcon = faEraser;
   logoutIcon = faSignOutAlt;
   githubIcon = faGithub;
+  formIcon = faWpforms;
   isCollapsed = true;
   username = '';
   messageHistory: MessageHistory[];
