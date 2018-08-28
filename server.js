@@ -12,9 +12,8 @@ let app = express();
 app.set('port', process.argv[3] || 8080);
 
 app.use(compression());
-
 app.use(logger('combined'));
-
+app.use(express.json());
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // proxy.json
@@ -24,7 +23,7 @@ let proxyOptions = config[proxyContext];
 let backendProxy = proxy(proxyOptions);
 app.use(proxyContext, backendProxy);
 
-app.use(function (req, res) {
+app.use('*', function (req, res) {
 
   // respond with index to process links
   if (req.accepts('html')) {
