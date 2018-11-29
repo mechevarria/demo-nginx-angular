@@ -1,0 +1,29 @@
+/* Custom page CSS */
+body {
+  background-color: #eee;
+}
+
+.app-navbar {
+  padding-bottom: 4px !important;
+  padding-top: 4px !important;
+}
+
+.app-nav-action {
+  cursor: pointer;
+}
+
+.app-breadcrumb-container {
+  margin-top: 56px;
+  background-color: white;
+}
+
+.breadcrumb {
+  margin-bottom: 0 !important;
+  padding-bottom: 6px !important;
+  background-color: white;
+  border-radius: 0;
+}
+
+.app-table {
+  width: 100% !important;
+}
