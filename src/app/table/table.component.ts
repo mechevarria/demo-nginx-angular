@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {MessageService} from '../common/message.service';
+import {MessageService} from '../message/message.service';
 import {CommentService} from './comment.service';
 import {Comment} from './comment';
 import {Subject} from 'rxjs';

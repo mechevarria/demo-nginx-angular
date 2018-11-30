@@ -10,11 +10,7 @@ export class MessageHistoryService {
 
   constructor(private messageService: MessageService) {
     this.messageHistory = new Array();
-    messageService.messageAdded$.subscribe(msg => this.onMessageAdded(msg));
-  }
-
-  private onMessageAdded(msg: MessageItem): void {
-    this.messageHistory.push(msg);
+    messageService.newMessage$.subscribe(msg => this.messageHistory.push(msg));
   }
 
   public clear(): void {

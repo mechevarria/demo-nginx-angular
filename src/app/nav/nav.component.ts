@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageItem } from '../common/message-item';
+import { MessageItem } from '../message/message-item';
 import {
   faEraser,
   faChartPie,
@@ -10,7 +10,7 @@ import {
   IconDefinition
 } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faWpforms } from '@fortawesome/free-brands-svg-icons';
-import { MessageHistoryService } from '../common/message-history.service';
+import { MessageHistoryService } from '../message/message-history.service';
 
 @Component({
   selector: 'app-nav',
