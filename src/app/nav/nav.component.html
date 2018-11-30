@@ -36,17 +36,17 @@
           <a class="nav-link dropdown-toggle" href role="button" aria-haspopup="true" aria-expanded="false"
              dropdownToggle (click)="false">
             <fa-icon [icon]="flagIcon"></fa-icon>
-            <span class="badge" *ngIf="messageHistory.length > 0">{{messageHistory.length}}</span>
+            <span class="badge" *ngIf="messages.length > 0">{{messages.length}}</span>
           </a>
           <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
-            <li role="menuitem" *ngFor="let item of messageHistory">
+            <li role="menuitem" *ngFor="let item of messages">
               <a class="dropdown-item">
-                <fa-icon [icon]="item.class"></fa-icon> {{item.msg}}
+                <fa-icon [icon]="item.class"></fa-icon> {{item.text}}
               </a>
             </li>
             <li class="divider dropdown-divider"></li>
             <li role="menuitem">
-              <a class="dropdown-item app-nav-action" (click)="messageService.clear();">
+              <a class="dropdown-item app-nav-action" (click)="clear();">
                 <fa-icon [icon]="eraseIcon"></fa-icon> Clear Messages
               </a>
             </li>

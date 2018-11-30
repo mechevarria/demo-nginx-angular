@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {faHandPointer} from '@fortawesome/free-solid-svg-icons';
+import {faHandPointer, IconDefinition} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +8,10 @@ import {faHandPointer} from '@fortawesome/free-solid-svg-icons';
 })
 export class HomeComponent implements OnInit {
 
-  icon = faHandPointer;
+  icon: IconDefinition;
 
   constructor(public route: ActivatedRoute) {
+    this.icon = faHandPointer;
   }
 
   ngOnInit() {

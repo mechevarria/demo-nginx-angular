@@ -7,11 +7,11 @@ import {User} from './user';
   templateUrl: './form.component.html'
 })
 export class FormComponent implements OnInit {
+  model: User;
 
   constructor(private messageService: MessageService) {
+    this.model = new User();
   }
-
-  model: User = new User();
 
   submit() {
     this.messageService.success(`firstName: ${this.model.firstName}, lastName: ${this.model.lastName}, group: ${this.model.group}`);

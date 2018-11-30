@@ -1,27 +1,26 @@
-import {Injectable} from '@angular/core';
-import {MessageHistory} from './message-history';
-import {ToastrService} from 'ngx-toastr';
-import {faCheckCircle} from '@fortawesome/free-solid-svg-icons';
-import {faTimesCircle} from '@fortawesome/free-solid-svg-icons';
-import {faInfoCircle} from '@fortawesome/free-solid-svg-icons';
-import {faExclamationCircle} from '@fortawesome/free-solid-svg-icons';
+import { Injectable, EventEmitter } from '@angular/core';
+import { MessageItem } from './message-item';
+import { ToastrService } from 'ngx-toastr';
+import {
+  faCheckCircle,
+  IconDefinition
+} from '@fortawesome/free-solid-svg-icons';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
-
   private successIcon = faCheckCircle;
   private errorIcon = faTimesCircle;
   private infoIcon = faInfoCircle;
   private warningIcon = faExclamationCircle;
-  private messageHistory: MessageHistory[] = [];
+  public messageAdded$: EventEmitter<MessageItem>;
 
   constructor(private toastr: ToastrService) {
-  }
-
-  getHistory(): MessageHistory[] {
-    return this.messageHistory;
+    this.messageAdded$ = new EventEmitter();
   }
 
   success(msg: string): void {
@@ -44,18 +43,12 @@ export class MessageService {
     this.addToHistory(this.warningIcon, msg);
   }
 
-  private addToHistory(type: any, msg: string): void {
-    // make the delay to dropdown the same as the notification fade
-    setTimeout((history) => {
-      history.push({
-        class: type,
-        msg: msg
-      });
-    }, 5000, this.messageHistory);
-  }
+  private addToHistory(icon: IconDefinition, text: string): void {
+    const message = new MessageItem();
+    message.class = icon;
+    message.text = text;
 
-  clear(): void {
-    this.messageHistory.length = 0;
+    // message history service will pick up this event
+    this.messageAdded$.emit(message);
   }
-
 }

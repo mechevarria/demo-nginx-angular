@@ -1,31 +1,53 @@
-import {Component, OnInit} from '@angular/core';
-import {MessageHistory} from '../common/message-history';
-import {MessageService} from '../common/message.service';
-import {faEraser, faChartPie, faFlag, faSignOutAlt, faTable, faUser} from '@fortawesome/free-solid-svg-icons';
-import {faGithub, faWpforms} from '@fortawesome/free-brands-svg-icons';
+import { Component, OnInit } from '@angular/core';
+import { MessageItem } from '../common/message-item';
+import {
+  faEraser,
+  faChartPie,
+  faFlag,
+  faSignOutAlt,
+  faTable,
+  faUser,
+  IconDefinition
+} from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faWpforms } from '@fortawesome/free-brands-svg-icons';
+import { MessageHistoryService } from '../common/message-history.service';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html'
 })
-
 export class NavComponent implements OnInit {
-  chartIcon = faChartPie;
-  tableIcon = faTable;
-  flagIcon = faFlag;
-  userIcon = faUser;
-  eraseIcon = faEraser;
-  logoutIcon = faSignOutAlt;
-  githubIcon = faGithub;
-  formIcon = faWpforms;
-  isCollapsed = true;
-  username = '';
-  messageHistory: MessageHistory[];
+  chartIcon: IconDefinition;
+  tableIcon: IconDefinition;
+  flagIcon: IconDefinition;
+  userIcon: IconDefinition;
+  eraseIcon: IconDefinition;
+  logoutIcon: IconDefinition;
+  githubIcon: IconDefinition;
+  formIcon: IconDefinition;
+  isCollapsed: boolean;
+  username: string;
+  messages: MessageItem[];
 
-  constructor(public messageService: MessageService) {
+  constructor(private messageHistoryService: MessageHistoryService) {
+    this.chartIcon = faChartPie;
+    this.tableIcon = faTable;
+    this.flagIcon = faFlag;
+    this.userIcon = faUser;
+    this.eraseIcon = faEraser;
+    this.logoutIcon = faSignOutAlt;
+    this.githubIcon = faGithub;
+    this.formIcon = faWpforms;
+    this.isCollapsed = true;
+    this.messages = new Array();
+    this.username = '';
+  }
+
+  clear() {
+    this.messageHistoryService.clear();
   }
 
   ngOnInit(): void {
-    this.messageHistory = this.messageService.getHistory();
+    this.messages = this.messageHistoryService.getHistory();
   }
 }
