@@ -1,8 +1,7 @@
+@import '~@coreui/coreui/scss/coreui';
 
 // for adding theme to alerts
-@import '~bootstrap/scss/functions';
-@import "~bootswatch/dist/materia/variables";
-@import "~bootstrap/scss/bootstrap";
-@import "~bootswatch/dist/materia/bootswatch";
-@import '~bootstrap/scss/mixins';
+@import '~@coreui/coreui/scss/bootstrap/functions';
+@import '~@coreui/coreui/scss/bootstrap/variables';
+@import '~@coreui/coreui/scss/bootstrap/mixins';
 @import '~ngx-toastr/toastr-bs4-alert';

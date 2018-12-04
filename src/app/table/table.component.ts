@@ -1,37 +1,48 @@
-import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {MessageService} from '../message/message.service';
-import {CommentService} from './comment.service';
-import {Comment} from './comment';
-import {Subject} from 'rxjs';
-import {DataTableDirective} from 'angular-datatables';
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild
+} from '@angular/core';
+import { MessageService } from '../message/message.service';
+import { CommentService } from './comment.service';
+import { Comment } from './comment';
+import { Subject } from 'rxjs';
+import { DataTableDirective } from 'angular-datatables';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html'
 })
 export class TableComponent implements OnDestroy, OnInit, AfterViewInit {
-
-  constructor(private messageService: MessageService, private commentService: CommentService) {
-  }
-
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
 
-  dtOptions: DataTables.Settings = {};
-  comments: Comment[] = [];
-  dtTrigger = new Subject();
+  dtOptions: DataTables.Settings;
+  comments: Comment[];
+  dtTrigger: Subject<any>;
+
+  constructor(
+    private messageService: MessageService,
+    private commentService: CommentService
+  ) {
+    this.dtOptions = {};
+    this.comments = new Array();
+    this.dtTrigger = new Subject();
+  }
 
   load(): void {
-    this.commentService.getComments()
-      .subscribe(res => {
-        this.comments = res;
-        this.rerender();
+    this.commentService.getComments().subscribe(res => {
+      this.comments = res;
+      this.rerender();
 
-        if (this.comments != null) {
-          this.messageService.success(`Successfully loaded ${this.comments.length} comments from service`);
-        }
-
-      });
+      if (this.comments != null) {
+        this.messageService.success(
+          `Successfully loaded ${this.comments.length} comments from service`
+        );
+      }
+    });
   }
 
   rerender(): void {
@@ -61,11 +72,12 @@ export class TableComponent implements OnDestroy, OnInit, AfterViewInit {
 
   ngOnInit() {
     this.dtOptions = {
-      pagingType: 'simple_numbers',
+      pagingType: 'simple',
       responsive: true,
       pageLength: 10,
       language: {
-        lengthMenu: 'Display <select class="custom-select">' +
+        lengthMenu:
+          'Display <select class="custom-select">' +
           '<option value="10">10</option>' +
           '<option value="30">30</option>' +
           '<option value="-1">All</option>' +
@@ -77,5 +89,4 @@ export class TableComponent implements OnDestroy, OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.rerender();
   }
-
 }

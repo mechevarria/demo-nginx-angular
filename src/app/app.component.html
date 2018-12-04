@@ -1,7 +1,8 @@
-<app-nav></app-nav>
-<div class="container-fluid app-breadcrumb-container border-bottom mb-3">
-  <app-breadcrumb></app-breadcrumb>
+<app-header></app-header>
+<div class="app-body">
+  <app-sidebar></app-sidebar>
+  <main class="main">
+    <app-breadcrumb></app-breadcrumb>
+    <div class="container-fluid"><router-outlet></router-outlet></div>
+  </main>
 </div>
-<main role="main" class="container-fluid app-main">
-  <router-outlet></router-outlet>
-</main>

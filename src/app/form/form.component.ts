@@ -14,7 +14,7 @@ export class FormComponent implements OnInit {
   }
 
   submit() {
-    this.messageService.success(`firstName: ${this.model.firstName}, lastName: ${this.model.lastName}, group: ${this.model.group}`);
+    this.messageService.success(`Submitted lastName: ${this.model.lastName}`);
   }
 
   clear() {

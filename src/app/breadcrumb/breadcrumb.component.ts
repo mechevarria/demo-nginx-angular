@@ -2,7 +2,6 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {BreadCrumb} from './breadcrumb';
 import {distinctUntilChanged, filter, map} from 'rxjs/operators';
-import {faHome } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -17,7 +16,6 @@ export class BreadcrumbComponent implements OnInit {
     map(event => this.buildBreadCrumb(this.activatedRoute.firstChild))
   );
   title = '';
-  homeIcon = faHome;
 
   // Build your breadcrumb starting with the root route of your current activated route
   constructor(private activatedRoute: ActivatedRoute,
