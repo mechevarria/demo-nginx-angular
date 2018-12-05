@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {MessageService} from '../message/message.service';
-import {User} from './user';
+import { Component, OnInit } from '@angular/core';
+import { MessageService } from '../message/message.service';
+import { User } from './user';
 
 @Component({
   selector: 'app-form',
@@ -14,7 +14,9 @@ export class FormComponent implements OnInit {
   }
 
   submit() {
-    this.messageService.success(`Submitted lastName: ${this.model.lastName}`);
+    this.messageService.success(
+      `Submitted lastName: ${this.model.lastName}, firstName: ${this.model.firstName}, Group: ${this.model.group}`
+    );
   }
 
   clear() {
@@ -22,7 +24,5 @@ export class FormComponent implements OnInit {
     this.messageService.info('Cleared form');
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

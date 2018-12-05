@@ -25,7 +25,7 @@
 
   <!-- toggle sidebar -->
   <button
-    class="navbar-toggler sidebar-toggler"
+    class="navbar-toggler sidebar-toggler d-none d-sm-block"
     type="button"
     (click)="toggleSidebar()"
   >
@@ -34,7 +34,7 @@
 
   <!-- top right menu -->
   <ul class="navbar-nav ml-auto">
-    <li class="nav-item dropdown" dropdown placement="bottom right">
+    <li class="nav-item dropdown d-none d-sm-block" dropdown placement="bottom right">
       <a
         class="nav-link dropdown-toggle app-no-caret"
         href
@@ -75,7 +75,7 @@
         aria-labelledby="navbarDropdown"
         *dropdownMenu
       >
-        <a class="dropdown-item app-nav-action">
+        <a class="dropdown-item app-pointer">
           <fa-icon [icon]="logoutIcon"></fa-icon> Logout
         </a>
       </div>
