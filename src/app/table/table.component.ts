@@ -1,10 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  OnDestroy,
-  OnInit,
-  ViewChild
-} from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MessageService } from '../message/message.service';
 import { CommentService } from './comment.service';
 import { Comment } from './comment';
@@ -23,10 +17,7 @@ export class TableComponent implements OnDestroy, OnInit, AfterViewInit {
   comments: Comment[];
   dtTrigger: Subject<any>;
 
-  constructor(
-    private messageService: MessageService,
-    private commentService: CommentService
-  ) {
+  constructor(private messageService: MessageService, private commentService: CommentService) {
     this.dtOptions = {};
     this.comments = new Array();
     this.dtTrigger = new Subject();
@@ -38,9 +29,7 @@ export class TableComponent implements OnDestroy, OnInit, AfterViewInit {
       this.rerender();
 
       if (this.comments != null) {
-        this.messageService.success(
-          `Successfully loaded ${this.comments.length} comments from service`
-        );
+        this.messageService.success(`Successfully loaded ${this.comments.length} comments from service`);
       }
     });
   }
@@ -74,15 +63,7 @@ export class TableComponent implements OnDestroy, OnInit, AfterViewInit {
     this.dtOptions = {
       pagingType: 'simple',
       responsive: true,
-      pageLength: 10,
-      language: {
-        lengthMenu:
-          'Display <select class="custom-select">' +
-          '<option value="10">10</option>' +
-          '<option value="30">30</option>' +
-          '<option value="-1">All</option>' +
-          '</select>'
-      }
+      pageLength: 10
     };
   }
 

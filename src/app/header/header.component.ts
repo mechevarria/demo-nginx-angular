@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2} from '@angular/core';
+import { Component, OnInit, Renderer2, HostListener} from '@angular/core';
 import { MessageItem } from '../message/message-item';
 import {
   faEraser,
@@ -29,6 +29,16 @@ export class HeaderComponent implements OnInit {
     this.sidebarVisible = true;
     this.messages = new Array();
     this.username = '';
+
+    // hide sidebar by default on mobile
+    this.checkForMobile();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  checkForMobile(event?) {
+    if (window.innerWidth < 640) {
+      this.toggleSidebar();
+    }
   }
 
   clear() {

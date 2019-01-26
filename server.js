@@ -9,19 +9,26 @@ let proxy = require('http-proxy-middleware');
 
 let app = express();
 
-app.set('port', process.argv[3] || 8080);
+app.set('port', process.env.PORT || 8080);
 
 app.use(compression());
 app.use(logger('combined'));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// proxy.json
-let config = require(`./${process.argv[2]}`);
-let proxyContext = Object.keys(config)[0];
-let proxyOptions = config[proxyContext];
-let backendProxy = proxy(proxyOptions);
-app.use(proxyContext, backendProxy);
+// proxy jsonplaceholder
+app.use(
+  '/jsonplaceholder/*',
+  proxy({
+    target: "http://jsonplaceholder.typicode.com",
+    secure: false,
+    changeOrigin: true,
+    logLevel: 'debug',
+    pathRewrite: {
+      '^/jsonplaceholder': ''
+    }
+  })
+);
 
 app.use('*', function (req, res) {
 
