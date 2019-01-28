@@ -4,10 +4,17 @@
       <div class="card-header">Map</div>
       <div class="card-body">
         <mgl-map [style]="'mapbox://styles/mapbox/streets-v9'" [zoom]="[6]" [center]="[-65.017, -16.457]">
-          <mgl-marker *ngFor="let feature of geojson.features" [feature]="feature" >
-            <!-- TODO: refactor to dynamic styling-->
-            <div class="marker" style="background-image: url(assets/img/marker-icon-blue.png); width: 25px; height: 41px; cursor: pointer;"></div>
-          </mgl-marker>
+          <span *ngFor="let feature of geojson.features; let i = index">
+            <mgl-marker [lngLat]="feature.geometry.coordinates" #marker>
+              <!-- TODO: refactor to dynamic styling-->
+              <div class="marker" style="background-image: url(assets/img/marker-icon-blue.png); width: 25px; height: 41px; cursor: pointer;"></div>
+            </mgl-marker>
+            <mgl-popup [marker]="marker" [offset]="[0,-15]">
+              <div class="card-text">
+                Popup text
+              </div>
+            </mgl-popup>
+          </span>
         </mgl-map>
       </div>
     </div>

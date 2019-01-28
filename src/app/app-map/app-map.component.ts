@@ -15,7 +15,7 @@ export class AppMapComponent implements OnInit {
         {
           type: 'Feature',
           properties: {
-            title: 'Foo'
+            message: 'Foo'
           },
           geometry: {
             type: 'Point',
