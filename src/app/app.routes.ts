@@ -3,6 +3,7 @@ import {HomeComponent} from './home/home.component';
 import {TableComponent} from './table/table.component';
 import {ChartsComponent} from './charts/charts.component';
 import {FormComponent} from './form/form.component';
+import { AppMapComponent } from './app-map/app-map.component';
 
 export const AppRoutes: Routes = [
   {
@@ -31,6 +32,13 @@ export const AppRoutes: Routes = [
         component: FormComponent,
         data: {
           breadcrumb: 'Form'
+        }
+      },
+      {
+        path: 'map',
+        component: AppMapComponent,
+        data: {
+          breadcrumb: 'Map'
         }
       }
     ]

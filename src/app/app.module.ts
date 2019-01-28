@@ -20,6 +20,8 @@ import { DataTablesModule } from 'angular-datatables';
 import { FormComponent } from './form/form.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
+import { AppMapComponent } from './app-map/app-map.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     BreadcrumbComponent,
     ChartsComponent,
     FormComponent,
-    SidebarComponent
+    SidebarComponent,
+    AppMapComponent
   ],
   imports: [
     BrowserModule,
@@ -47,9 +50,13 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     ToastrModule.forRoot({
       closeButton: true,
       progressBar: true
+    }),
+    NgxMapboxGLModule.withConfig({
+      accessToken: 'pk.eyJ1IjoibWVjaGV2YXJyaWEiLCJhIjoiY2pxbXNuMXF0MGwzNTQ5bzJwNGtyMTRqdyJ9.WZfALlPxuOveabQDrroLcQ'
     })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+

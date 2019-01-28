@@ -24,7 +24,8 @@
               "node_modules/simple-line-icons/css/simple-line-icons.css",
               "src/styles.scss",
               "node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css",
-              "node_modules/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css"
+              "node_modules/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css",
+              "node_modules/mapbox-gl/dist/mapbox-gl.css"
             ],
             "scripts": [
               "node_modules/chart.js/dist/Chart.min.js",

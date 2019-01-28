@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md">
+    <div class="card mb-3">
+      <div class="card-header">Map</div>
+      <div class="card-body">
+        <mgl-map [style]="'mapbox://styles/mapbox/streets-v9'" [zoom]="[6]" [center]="[-65.017, -16.457]">
+          <mgl-marker *ngFor="let feature of geojson.features" [feature]="feature" >
+            <!-- TODO: refactor to dynamic styling-->
+            <div class="marker" style="background-image: url(assets/img/marker-icon-blue.png); width: 25px; height: 41px; cursor: pointer;"></div>
+          </mgl-marker>
+        </mgl-map>
+      </div>
+    </div>
+  </div>
+</div>
