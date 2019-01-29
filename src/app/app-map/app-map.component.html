@@ -3,7 +3,7 @@
     <div class="card mb-3">
       <div class="card-header">Map</div>
       <div class="card-body">
-        <mgl-map [style]="'mapbox://styles/mapbox/streets-v9'" [zoom]="[6]" [center]="[-65.017, -16.457]">
+        <mgl-map [style]="'mapbox://styles/mapbox/streets-v9'" [zoom]="[6]" [center]="[-65.017, -16.457]" *ngIf="geojson">
           <span *ngFor="let feature of geojson.features">
             <mgl-marker [lngLat]="feature.geometry.coordinates" #marker>
               <!-- icons from https://iconscout.com/icon/location-62-->
