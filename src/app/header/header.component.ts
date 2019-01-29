@@ -1,11 +1,8 @@
-import { Component, OnInit, Renderer2, HostListener} from '@angular/core';
+import { Component, OnInit, Renderer2, HostListener } from '@angular/core';
 import { MessageItem } from '../message/message-item';
-import {
-  faEraser,
-  faSignOutAlt,
-  IconDefinition
-} from '@fortawesome/free-solid-svg-icons';
+import { faEraser, faSignOutAlt, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { MessageHistoryService } from '../message/message-history.service';
+import { interval } from 'rxjs';
 
 @Component({
   styleUrls: ['./header.component.css'],
@@ -20,10 +17,7 @@ export class HeaderComponent implements OnInit {
   username: string;
   messages: MessageItem[];
 
-  constructor(
-    private messageHistoryService: MessageHistoryService,
-    private renderer: Renderer2
-  ) {
+  constructor(private messageHistoryService: MessageHistoryService, private renderer: Renderer2) {
     this.eraseIcon = faEraser;
     this.logoutIcon = faSignOutAlt;
     this.sidebarVisible = true;
@@ -46,12 +40,16 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleSidebar() {
-      this.sidebarVisible = !this.sidebarVisible;
-      if (this.sidebarVisible === false) {
-        this.renderer.removeClass(document.body, 'sidebar-show');
-      } else {
-        this.renderer.addClass(document.body, 'sidebar-show');
-      }
+    this.sidebarVisible = !this.sidebarVisible;
+    if (this.sidebarVisible === false) {
+      this.renderer.removeClass(document.body, 'sidebar-show');
+    } else {
+      this.renderer.addClass(document.body, 'sidebar-show');
+    }
+    // triggering this event so that the mapbox api will auto resize the map
+    interval(500).subscribe(() => {
+      window.dispatchEvent(new Event('resize'));
+    });
   }
 
   ngOnInit(): void {

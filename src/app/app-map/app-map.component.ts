@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FeatureCollection } from 'geojson';
 import { AppMapService } from './app-map.service';
 import { MessageService } from '../message/message.service';
 
