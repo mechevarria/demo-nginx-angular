@@ -22,6 +22,8 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { AppMapComponent } from './app-map/app-map.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryApiService } from './in-memory-api.service';
 
 @NgModule({
   declarations: [
@@ -53,10 +55,13 @@ import { AppMapComponent } from './app-map/app-map.component';
     }),
     NgxMapboxGLModule.withConfig({
       accessToken: 'pk.eyJ1IjoibWVjaGV2YXJyaWEiLCJhIjoiY2pxbXNuMXF0MGwzNTQ5bzJwNGtyMTRqdyJ9.WZfALlPxuOveabQDrroLcQ'
+    }),
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryApiService, {
+      dataEncapsulation: false,
+      passThruUnknownUrl: true
     })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
-
