@@ -9,7 +9,7 @@ import { MessageService } from '../message/message.service';
   styleUrls: ['./app-map.component.css']
 })
 export class AppMapComponent implements OnInit {
-  geojson: FeatureCollection;
+  geojson: any;
 
   constructor(private appMapService: AppMapService, private messageService: MessageService) {
   }

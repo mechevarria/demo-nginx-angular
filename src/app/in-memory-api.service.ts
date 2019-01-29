@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api/interfaces';
-import { FeatureCollection } from 'geojson';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +7,7 @@ import { FeatureCollection } from 'geojson';
 export class InMemoryApiService implements InMemoryDbService {
   createDb() {
     // tslint:disable-next-line:prefer-const
-    let geojsonMock: FeatureCollection = {
+    let geojsonMock: any = {
       type: 'FeatureCollection',
       features: [
         {

@@ -4,7 +4,6 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { of } from 'rxjs/internal/observable/of';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError } from 'rxjs/internal/operators/catchError';
-import { FeatureCollection } from 'geojson';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +12,7 @@ export class AppMapService {
   private mapUrl = 'api/geojsonMock';
 
   getData() {
-    return this.http.get<FeatureCollection>(this.mapUrl).pipe(
+    return this.http.get<any>(this.mapUrl).pipe(
       catchError(res => {
         return this.handleError('getData()', res);
       })
