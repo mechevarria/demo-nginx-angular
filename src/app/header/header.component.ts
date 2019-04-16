@@ -47,12 +47,11 @@ export class HeaderComponent implements OnInit {
       this.renderer.addClass(document.body, 'sidebar-show');
     }
     // triggering this event so that the mapbox api will auto resize the map
-    interval(500).subscribe(() => {
-      // triggering on small display will cause infinite loop
-      if (window.innerWidth > 640) {
+    if (window.innerWidth > 640) {
+      setTimeout(() => {
         window.dispatchEvent(new Event('resize'));
-      }
-    });
+      }, 500);
+    }
   }
 
   ngOnInit(): void {
