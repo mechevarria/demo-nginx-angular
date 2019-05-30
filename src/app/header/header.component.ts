@@ -1,8 +1,8 @@
-import { Component, OnInit, Renderer2, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { MessageItem } from '../message/message-item';
 import { faEraser, faSignOutAlt, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { MessageHistoryService } from '../message/message-history.service';
-import { interval } from 'rxjs';
+import { SidebarService } from '../sidebar/sidebar.service';
 
 @Component({
   styleUrls: ['./header.component.css'],
@@ -10,20 +10,13 @@ import { interval } from 'rxjs';
   templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
-  eraseIcon: IconDefinition;
-  logoutIcon: IconDefinition;
-  formIcon: IconDefinition;
-  sidebarVisible: boolean;
-  username: string;
+  eraseIcon: IconDefinition = faEraser;
+  logoutIcon: IconDefinition = faSignOutAlt;
+  sidebarVisible: boolean = true;
+  username: string = '';
   messages: MessageItem[];
 
-  constructor(private messageHistoryService: MessageHistoryService, private renderer: Renderer2) {
-    this.eraseIcon = faEraser;
-    this.logoutIcon = faSignOutAlt;
-    this.sidebarVisible = true;
-    this.messages = new Array();
-    this.username = '';
-
+  constructor(private messageHistoryService: MessageHistoryService, public sidebarService: SidebarService) {
     // hide sidebar by default on mobile
     this.checkForMobile();
   }
@@ -31,27 +24,12 @@ export class HeaderComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   checkForMobile(event?) {
     if (window.innerWidth < 640) {
-      this.toggleSidebar();
+      this.sidebarService.toggleSidebar();
     }
   }
 
   clear() {
     this.messageHistoryService.clear();
-  }
-
-  toggleSidebar() {
-    this.sidebarVisible = !this.sidebarVisible;
-    if (this.sidebarVisible === false) {
-      this.renderer.removeClass(document.body, 'sidebar-show');
-    } else {
-      this.renderer.addClass(document.body, 'sidebar-show');
-    }
-    // triggering this event so that the mapbox api will auto resize the map
-    if (window.innerWidth > 640) {
-      setTimeout(() => {
-        window.dispatchEvent(new Event('resize'));
-      }, 500);
-    }
   }
 
   ngOnInit(): void {
