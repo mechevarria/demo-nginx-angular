@@ -1,16 +1,25 @@
 # Frontend Angular
 
-Starter seed project for [Angular](https://angular.io/) and [Bootstrap](https://getbootstrap.com/).  This project was generated with [Angular CLI](https://github.com/angular/angular-cli). [Bootswatch](https://bootswatch.com/) is already integrated.  The project is also configured to run on [Openshift](https://www.openshift.com/) with no configuration changes necessary.
+Starter seed project for [Angular](https://angular.io/) and [Bootstrap](https://getbootstrap.com/).  This project was generated with [Angular CLI](https://github.com/angular/angular-cli). [coreui](https://coreui.io/docs/getting-started/introduction/) is already integrated.  The project is also configured to run on [Openshift](https://www.openshift.com/) with no configuration changes necessary.
 
  ![screenshot.png](screenshot.png)
 
 ## Install
 
-Run `npm install` to dowload the project dependencies
+* Install dependencies with 
+>`npm install`
 
 ## Development server
 
-Run `ng run local` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* In one terminal, start a dev build that watches source files and rebuilds automatically
+
+> `npm run buildDev`
+
+* In a separate terminal run the express server
+
+>`run-local.sh`
+
+The server will be running on [http://localhost:4200](http://localhost:4200)
 
 ## Code scaffolding
 
@@ -18,7 +27,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Running on OpenShift
 Requires an accessible [OpenShift Container Platform](https://www.openshift.com/container-platform/index.html) install
@@ -27,12 +36,12 @@ For local development you can use [MiniShift](https://docs.openshift.org/latest/
 
 ### Create the New Application
 
-Select `Add to Project -> Catalog -> JavaScript -> Node.js`.  Make sure the version is **8** or higher
+Select `Add to Project -> Catalog -> JavaScript -> Node.js`
 * Name **frontend-angular**
 * Git Repository URL **https://github.com/mechevarria/frontend-angular**
 * Click create
 
-The default build will run a `npm install` command and then `npm run start`.
+The default build will run a `npm install, npm build` command and then `npm run start`.
   
 ## Further help
 
