@@ -50,8 +50,7 @@ import { InMemoryApiService } from './in-memory-api.service';
     ChartsModule,
     DataTablesModule,
     ToastrModule.forRoot({
-      closeButton: true,
-      progressBar: true
+      maxOpened: 2
     }),
     NgxMapboxGLModule.withConfig({
       accessToken: 'pk.eyJ1IjoibWVjaGV2YXJyaWEiLCJhIjoiY2pxbXNuMXF0MGwzNTQ5bzJwNGtyMTRqdyJ9.WZfALlPxuOveabQDrroLcQ'

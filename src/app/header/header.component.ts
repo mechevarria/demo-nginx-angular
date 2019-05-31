@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { MessageItem } from '../message/message-item';
-import { faEraser, faSignOutAlt, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition, faLock, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
 import { MessageHistoryService } from '../message/message-history.service';
 import { SidebarService } from '../sidebar/sidebar.service';
 
@@ -10,10 +10,11 @@ import { SidebarService } from '../sidebar/sidebar.service';
   templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
-  eraseIcon: IconDefinition = faEraser;
-  logoutIcon: IconDefinition = faSignOutAlt;
+  isLoggedIn: boolean = false;
+  logoutIcon: IconDefinition = faLock;
+  accountIcon: IconDefinition = faShieldAlt;
   sidebarVisible: boolean = true;
-  username: string = '';
+  username: string = 'Guest';
   messages: MessageItem[];
 
   constructor(private messageHistoryService: MessageHistoryService, public sidebarService: SidebarService) {
@@ -22,9 +23,21 @@ export class HeaderComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  checkForMobile(event?) {
+  checkForMobile() {
     if (window.innerWidth < 640) {
       this.sidebarService.toggleSidebar();
+    }
+  }
+
+  doLogout(): void {
+    if (this.isLoggedIn) {
+      // this.keycloak.logout();
+    }
+  }
+
+  doAccount(): void {
+    if (this.isLoggedIn) {
+      // window.open(this.accountUrl, '_blank');
     }
   }
 
