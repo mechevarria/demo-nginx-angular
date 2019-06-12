@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routes';
-import { BsDropdownModule, CollapseModule } from 'ngx-bootstrap';
+import { BsDropdownModule, CollapseModule, PaginationModule } from 'ngx-bootstrap';
 import { TableComponent } from './table/table.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
@@ -16,7 +16,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { ChartsComponent } from './charts/charts.component';
 import { ChartsModule } from 'ng2-charts';
-import { DataTablesModule } from 'angular-datatables';
 import { FormComponent } from './form/form.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -44,11 +43,11 @@ import { InMemoryApiService } from './in-memory-api.service';
     HttpClientModule,
     RouterModule.forRoot(AppRoutes),
     BsDropdownModule.forRoot(),
+    PaginationModule.forRoot(),
     CollapseModule.forRoot(),
     CommonModule,
     BrowserAnimationsModule,
     ChartsModule,
-    DataTablesModule,
     ToastrModule.forRoot({
       maxOpened: 2,
       positionClass: 'toast-bottom-center',
