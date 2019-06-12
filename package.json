@@ -12,7 +12,7 @@
   "scripts": {
     "ng": "$npm_package_ng",
     "build": "$npm_package_ng build --delete-output-path --prod",
-    "buildDev": "$npm_package_ng build --watch",
+    "watch": "$npm_package_ng build --watch",
     "lint": "$npm_package_ng lint",
     "start": "node server.js"
   },
