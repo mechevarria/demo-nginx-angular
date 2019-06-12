@@ -13,7 +13,7 @@ Starter seed project for [Angular](https://angular.io/) and [Bootstrap](https://
 
 * In one terminal, start a dev build that watches source files and rebuilds automatically
 
-> `npm run buildDev`
+> `npm run watch`
 
 * In a separate terminal run the express server
 
