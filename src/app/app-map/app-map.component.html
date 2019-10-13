@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-header">Map</div>
     <div class="card-body">
-      <mgl-map [style]="'mapbox://styles/mapbox/streets-v9'" [zoom]="[6]" [center]="[-65.017, -16.457]" *ngIf="geojson">
+      <mgl-map [style]="'mapbox://styles/mapbox/streets-v9'" [zoom]="[6]" [center]="[-65.017, -16.457]" *ngIf="geojson" (load)="loadMap($event)">
         <span *ngFor="let feature of geojson.features">
           <mgl-marker [lngLat]="feature.geometry.coordinates" #marker>
             <!-- icons from https://iconscout.com/icon/location-62-->

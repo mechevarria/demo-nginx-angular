@@ -1,8 +1,8 @@
 {
   "name": "frontend-angular",
   "description": "bootstrap/angular seed project based on angular-cli scaffolding",
-  "author": "Mike Echevarria <mechevar@redhat.com>",
-  "version": "0.5.0",
+  "author": "Mike Echevarria <mike.echevarria@gmail.com>",
+  "version": "0.6.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -36,10 +36,11 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.18",
     "@fortawesome/free-brands-svg-icons": "^5.8.2",
     "@fortawesome/free-solid-svg-icons": "^5.8.2",
+    "@mapbox/mapbox-gl-draw": "^1.1.2",
     "@types/datatables.net": "^1.10.17",
     "@types/jquery": "^3.3.29",
-    "@types/mapbox-gl": "^0.51.7",
-    "@types/node": "^12.0.3",
+    "@types/mapbox-gl": "^0.51.12",
+    "@types/node": "^12.7.12",
     "angular-datatables": "^7.0.0",
     "angular-in-memory-web-api": "^0.8.0",
     "chart.js": "^2.8.0",
@@ -57,7 +58,7 @@
     "morgan": "~1.9.1",
     "ng2-charts": "^1.6.0",
     "ngx-bootstrap": "~4.2.0",
-    "ngx-mapbox-gl": "^3.1.0",
+    "ngx-mapbox-gl": "^4.0.1",
     "ngx-toastr": "^10.0.4",
     "npm-sort": "0.0.4",
     "rxjs": "~6.3.3",
@@ -67,5 +68,9 @@
     "tslint": "~5.11.0",
     "typescript": "~3.1.6",
     "zone.js": "^0.8.29"
+  },
+  "browser" : {
+    "fs": false,
+    "path": false
   }
 }
