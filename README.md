@@ -1,6 +1,6 @@
 # Frontend Angular
 
-Starter seed project for [Angular](https://angular.io/) and [Bootstrap](https://getbootstrap.com/).  This project was generated with [Angular CLI](https://github.com/angular/angular-cli). [coreui](https://coreui.io/docs/getting-started/introduction/) is already integrated.  The project is also configured to run on [Openshift](https://www.openshift.com/) with no configuration changes necessary.
+Starter seed project for [Angular](https://angular.io/) and [Bootstrap](https://getbootstrap.com/).  This project was generated with [Angular CLI](https://github.com/angular/angular-cli). [coreui](https://coreui.io/docs/getting-started/introduction/) is already integrated.  The project is also configured as a [docker](https://docs.docker.com/install/) container
 
  ![screenshot.png](screenshot.png)
 
@@ -17,9 +17,9 @@ Starter seed project for [Angular](https://angular.io/) and [Bootstrap](https://
 
 * In a separate terminal run the express server
 
->`run-local.sh`
+>`npm run start`
 
-The server will be running on [http://localhost:4200](http://localhost:4200)
+The server will be running on [http://localhost:8080](http://localhost:8080)
 
 ## Code scaffolding
 
@@ -29,25 +29,23 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running on OpenShift
-Requires an accessible [OpenShift Container Platform](https://www.openshift.com/container-platform/index.html) install
+## Run as docker container
 
-For local development you can use [MiniShift](https://docs.openshift.org/latest/minishift/getting-started/installing.html)
+Build the image with this script
 
-### Create the New Application
+> `docker-build.sh`
 
-Select `Add to Project -> Catalog -> JavaScript -> Node.js`
-* Name **frontend-angular**
-* Git Repository URL **https://github.com/mechevarria/frontend-angular**
-* Click create
+Run the continer with this script
 
-The default build will run a `npm install, npm build` command and then `npm run start`.
-  
+> `docker-run.sh`  
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 To get started with Angular, this is an excellent official [tutorial](https://angular.io/tutorial)
+
+Mapbox component provided by [ngx-mapbox-gl](https://github.com/Wykks/ngx-mapbox-gl)
 
 Dropdown components were created using [ngx-bootstrap](https://github.com/valor-software/ngx-bootstrap)
 
