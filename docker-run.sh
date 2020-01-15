@@ -1,8 +1,3 @@
 #!/usr/bin/env bash
 
-port=8080
-
-docker run \
-    -p ${port}:${port} \
-    -e PORT=${port} \
-    localhost/frontend-angular
+docker run -p 80:80 quay.io/mechevarria/frontend-angular

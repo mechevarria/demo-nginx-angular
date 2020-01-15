@@ -1,17 +1,21 @@
-FROM node:10
-
-ARG port
-ENV port=${port}
+# build using nodejs
+FROM node:10 as builder
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY *.json ./
 
 RUN npm install
 
-COPY . .
+COPY src/ ./src/
 
 RUN npm run build
 
-EXPOSE ${port}
-CMD [ "node", "server.js" ]
+# run using nginx
+FROM nginx
+
+COPY ./nginx/default.conf /etc/nginx/conf.d/
+
+CMD /bin/sh -c "nginx -g 'daemon off;'"
+
+COPY --from=builder /usr/src/app/dist /usr/share/nginx/html

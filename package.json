@@ -13,8 +13,7 @@
     "ng": "$npm_package_ng",
     "build": "$npm_package_ng build --delete-output-path --prod",
     "watch": "$npm_package_ng build --watch",
-    "lint": "$npm_package_ng lint",
-    "start": "node server.js"
+    "lint": "$npm_package_ng lint"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.9",
@@ -56,11 +55,8 @@
     "datatables.net-bs4": "^1.10.20",
     "datatables.net-responsive": "^2.2.3",
     "datatables.net-responsive-bs4": "^2.2.3",
-    "express": "^4.17.1",
-    "http-proxy-middleware": "^0.20.0",
     "jquery": "^3.4.1",
     "mapbox-gl": "^1.4.1",
-    "morgan": "^1.9.1",
     "ng2-charts": "^2.3.0",
     "ngx-bootstrap": "~5.1.2",
     "ngx-mapbox-gl": "^4.0.1",

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-docker build \
-    -t localhost/frontend-angular . \
-    --build-arg port=8080
+docker build -t quay.io/mechevarria/frontend-angular .
+
+docker push quay.io/mechevarria/frontend-angular
