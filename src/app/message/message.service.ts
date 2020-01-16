@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { MessageItem } from './message-item';
-import { ToastrService } from 'ngx-toastr';
 import {
   faCheckCircle,
   IconDefinition
@@ -9,6 +8,7 @@ import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { Subject } from 'rxjs/internal/Subject';
+import { NotifierService } from 'angular-notifier';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class MessageService {
   private warningIcon: IconDefinition;
   public newMessage$: Subject<MessageItem>;
 
-  constructor(private toastr: ToastrService) {
+  constructor(private notifierService: NotifierService) {
     this.successIcon = faCheckCircle;
     this.errorIcon = faTimesCircle;
     this.infoIcon = faInfoCircle;
@@ -29,22 +29,22 @@ export class MessageService {
   }
 
   success(msg: string): void {
-    this.toastr.success(msg);
+    this.notifierService.notify('success', msg);
     this.emitMessage(this.successIcon, msg);
   }
 
   error(msg: string): void {
-    this.toastr.error(msg);
+    this.notifierService.notify('error', msg);
     this.emitMessage(this.errorIcon, msg);
   }
 
   info(msg: string): void {
-    this.toastr.info(msg);
+    this.notifierService.notify('info', msg);
     this.emitMessage(this.infoIcon, msg);
   }
 
   warning(msg: string): void {
-    this.toastr.warning(msg);
+    this.notifierService.notify('warning', msg);
     this.emitMessage(this.warningIcon, msg);
   }
 
