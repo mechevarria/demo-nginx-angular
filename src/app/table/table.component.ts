@@ -4,7 +4,8 @@ import { Comment } from './comment';
 
 @Component({
   selector: 'app-table',
-  templateUrl: './table.component.html'
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
 
