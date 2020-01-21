@@ -4,6 +4,8 @@ import { MessageService } from '../message/message.service';
 import esri = __esri; // Esri TypeScript Types
 import Map from 'esri/Map';
 import MapView from 'esri/views/MapView';
+import GraphicsLayer from 'esri/layers/GraphicsLayer';
+import Sketch from 'esri/widgets/Sketch';
 
 @Component({
   selector: 'app-app-map',
@@ -14,9 +16,6 @@ export class AppMapComponent implements OnInit, OnDestroy {
   geojson: any;
   @ViewChild('mapViewNode', { static: true }) private mapViewEl: ElementRef;
 
-  private _zoom = 10;
-  private _center: Array<number> = [0.1278, 51.5074];
-  private _basemap = 'streets';
   private _loaded = false;
   private _view: esri.MapView = null;
 
@@ -26,8 +25,11 @@ export class AppMapComponent implements OnInit, OnDestroy {
   async initMap() {
     try {
       // Configure the Map
+      const graphicsLayer = new GraphicsLayer();
+
       const mapProperties: esri.MapProperties = {
-        basemap: this._basemap
+        basemap: 'streets',
+        layers: [graphicsLayer]
       };
 
       const map = new Map(mapProperties);
@@ -35,12 +37,21 @@ export class AppMapComponent implements OnInit, OnDestroy {
       // Initialize the MapView
       const mapViewProperties: esri.MapViewProperties = {
         container: this.mapViewEl.nativeElement,
-        center: this._center,
-        zoom: this._zoom,
+        center: [-65.017, -16.457],
+        zoom: 10,
         map: map
       };
 
       this._view = new MapView(mapViewProperties);
+
+      const sketch = new Sketch({
+        layer: graphicsLayer,
+        view: this._view,
+        creationMode: 'update',
+        availableCreateTools: ['polygon', 'move']
+      });
+
+      this._view.ui.add(sketch, 'top-right');
 
       // wait for the map to load
       await this._view.when();
@@ -52,14 +63,12 @@ export class AppMapComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.initMap().then((mapView) => {
-      this.messageService.success('Successfully loaded map');
+    this.initMap().then(() => {
+      this.appMapService.getData().subscribe(res => {
+        this.geojson = res;
+        this.messageService.success('Successfully loaded map data');
+      });
     });
-
-    // this.appMapService.getData().subscribe(res => {
-    //   this.geojson = res;
-    //   this.messageService.success('Successfully loaded map data');
-    // });
   }
 
   ngOnDestroy() {
