@@ -2,7 +2,19 @@
   <div class="card">
     <div class="card-header">Map</div>
     <div class="card-body">
-      <div #mapViewNode></div>
+      <mgl-map [style]="'mapbox://styles/mapbox/streets-v9'" [zoom]="[6]" [center]="[-65.017, -16.457]" *ngIf="geojson" (load)="loadMap($event)">
+        <span *ngFor="let feature of geojson.features">
+          <mgl-marker [lngLat]="feature.geometry.coordinates" #marker>
+            <!-- icons from https://iconscout.com/icon/location-62-->
+            <div class="marker" [ngStyle]="{
+                'background-image': 'url(assets/img/marker-'+ feature.properties.icon +'.svg)'
+              }"></div>
+          </mgl-marker>
+          <mgl-popup [marker]="marker" [offset]="[0, -15]">
+            <div class="card-text">{{feature.properties.message}}</div>
+          </mgl-popup>
+        </span>
+      </mgl-map>
     </div>
   </div>
 </div>
