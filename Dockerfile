@@ -18,6 +18,6 @@ FROM nginx
 
 COPY ./nginx/default.conf /etc/nginx/conf.d/
 
-CMD /bin/sh -c "nginx -g 'daemon off;'"
-
 COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
+
+CMD /bin/sh -c "envsubst < /usr/share/nginx/html/assets/js/env.template.js > /usr/share/nginx/html/assets/js/env.js && nginx -g 'daemon off;'"

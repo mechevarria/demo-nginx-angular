@@ -59,8 +59,9 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
         }
       }
     }),
+    // _env defined in assets/js/env.js
     NgxMapboxGLModule.withConfig({
-      accessToken: 'pk.eyJ1IjoibWVjaGV2YXJyaWEiLCJhIjoiY2pxbXNuMXF0MGwzNTQ5bzJwNGtyMTRqdyJ9.WZfALlPxuOveabQDrroLcQ'
+      accessToken: window['_env'].mapboxToken
     }),
     HttpClientInMemoryWebApiModule.forRoot(InMemoryApiService, {
       dataEncapsulation: false,
