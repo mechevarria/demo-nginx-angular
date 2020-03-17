@@ -24,7 +24,7 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "node_modules/@coreui/coreui/dist/css/coreui.min.css",
-              "node_modules/@coreui/icons/css/free.min.css",
+              "node_modules/@coreui/icons/css/all.min.css",
               "node_modules/simple-line-icons/css/simple-line-icons.css",
               "node_modules/mapbox-gl/dist/mapbox-gl.css",
               "node_modules/@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css",
@@ -39,12 +39,6 @@
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
