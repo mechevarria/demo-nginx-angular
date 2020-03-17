@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { faGithub, IconDefinition } from '@fortawesome/free-brands-svg-icons';
 import { SidebarService } from './sidebar.service';
 
 @Component({
@@ -7,7 +6,6 @@ import { SidebarService } from './sidebar.service';
   templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent implements OnInit {
-  githubIcon: IconDefinition = faGithub;
 
   constructor(private sidebarService: SidebarService) {}
 

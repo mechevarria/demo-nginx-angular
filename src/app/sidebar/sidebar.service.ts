@@ -14,9 +14,9 @@ export class SidebarService {
   toggleSidebar() {
     this.sidebarVisible = !this.sidebarVisible;
     if (this.sidebarVisible === false) {
-      this.renderer.removeClass(document.body, 'sidebar-show');
+      this.renderer.removeClass(document.getElementById('app-sidebar'), 'c-sidebar-show');
     } else {
-      this.renderer.addClass(document.body, 'sidebar-show');
+      this.renderer.addClass(document.getElementById('app-sidebar'), 'c-sidebar-show');
     }
     // triggering this event so that the mapbox api will auto resize the map
     if (window.innerWidth > 640) {
