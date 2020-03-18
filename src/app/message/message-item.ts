@@ -1,10 +1,9 @@
-import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 export class MessageItem {
-  className: IconDefinition;
+  className: string;
   text: string;
 
-  constructor(className: IconDefinition, text: string) {
+  constructor(className: string, text: string) {
     this.className = className;
     this.text = text;
   }

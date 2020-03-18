@@ -1,12 +1,5 @@
 import { Injectable } from '@angular/core';
 import { MessageItem } from './message-item';
-import {
-  faCheckCircle,
-  IconDefinition
-} from '@fortawesome/free-solid-svg-icons';
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
-import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { Subject } from 'rxjs/internal/Subject';
 import { NotifierService } from 'angular-notifier';
 
@@ -14,41 +7,32 @@ import { NotifierService } from 'angular-notifier';
   providedIn: 'root'
 })
 export class MessageService {
-  private successIcon: IconDefinition;
-  private errorIcon: IconDefinition;
-  private infoIcon: IconDefinition;
-  private warningIcon: IconDefinition;
-  public newMessage$: Subject<MessageItem>;
+  public newMessage$: Subject<MessageItem> = new Subject();
 
   constructor(private notifierService: NotifierService) {
-    this.successIcon = faCheckCircle;
-    this.errorIcon = faTimesCircle;
-    this.infoIcon = faInfoCircle;
-    this.warningIcon = faExclamationCircle;
-    this.newMessage$ = new Subject();
   }
 
   success(msg: string): void {
     this.notifierService.notify('success', msg);
-    this.emitMessage(this.successIcon, msg);
+    this.emitMessage('success', msg);
   }
 
   error(msg: string): void {
     this.notifierService.notify('error', msg);
-    this.emitMessage(this.errorIcon, msg);
+    this.emitMessage('error', msg);
   }
 
   info(msg: string): void {
     this.notifierService.notify('info', msg);
-    this.emitMessage(this.infoIcon, msg);
+    this.emitMessage('info', msg);
   }
 
   warning(msg: string): void {
     this.notifierService.notify('warning', msg);
-    this.emitMessage(this.warningIcon, msg);
+    this.emitMessage('warning', msg);
   }
 
-  private emitMessage(icon: IconDefinition, text: string): void {
+  private emitMessage(icon: string, text: string): void {
     const message = new MessageItem(icon, text);
 
     // message history service will pick up the change
