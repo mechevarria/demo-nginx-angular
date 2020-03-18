@@ -1,6 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { MessageItem } from '../message/message-item';
-import { IconDefinition, faLock, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
 import { MessageHistoryService } from '../message/message-history.service';
 import { SidebarService } from '../sidebar/sidebar.service';
 
@@ -11,21 +10,17 @@ import { SidebarService } from '../sidebar/sidebar.service';
 })
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
-  logoutIcon: IconDefinition = faLock;
-  accountIcon: IconDefinition = faShieldAlt;
   sidebarVisible: boolean = true;
   username: string = 'Guest';
   messages: MessageItem[];
 
   constructor(private messageHistoryService: MessageHistoryService, public sidebarService: SidebarService) {
-    // hide sidebar by default on mobile
-    this.checkForMobile();
   }
 
   @HostListener('window:resize', ['$event'])
   checkForMobile() {
     if (window.innerWidth < 640) {
-      this.sidebarService.toggleSidebar();
+      this.sidebarService.toggleHide$.next();
     }
   }
 
@@ -47,5 +42,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.messages = this.messageHistoryService.getHistory();
+  }
+
+  ngAfterViewInit(): void {
+    // hide sidebar by default on mobile
+    this.checkForMobile();
   }
 }
