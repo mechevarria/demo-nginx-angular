@@ -10,7 +10,6 @@ import { BsDropdownModule, CollapseModule, PaginationModule } from 'ngx-bootstra
 import { TableComponent } from './table/table.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { ChartsComponent } from './charts/charts.component';
@@ -39,7 +38,6 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
   imports: [
     BrowserModule,
     FormsModule,
-    FontAwesomeModule,
     HttpClientModule,
     RouterModule.forRoot(AppRoutes),
     BsDropdownModule.forRoot(),
@@ -51,11 +49,10 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
     NotifierModule.withConfig({
       position: {
         horizontal: {
-          position: 'right'
+          position: 'middle'
         },
         vertical : {
-          position: 'top',
-          distance: 55
+          position: 'bottom'
         }
       }
     }),
