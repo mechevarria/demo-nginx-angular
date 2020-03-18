@@ -7,12 +7,17 @@ import { SidebarService } from './sidebar.service';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private sidebarService: SidebarService) {}
+  constructor(private sidebarService: SidebarService) {
+  }
 
   closeOnMobile(): void {
     if (window.innerWidth < 640) {
-      this.sidebarService.toggleSidebar();
+      this.sidebarService.toggleHide$.next();
     }
+  }
+
+  toggleMin(): void {
+    this.sidebarService.toggleMin$.next();
   }
 
   ngOnInit() {}

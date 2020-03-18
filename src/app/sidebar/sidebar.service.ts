@@ -1,28 +1,13 @@
-import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/internal/Subject';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SidebarService {
-  private renderer: Renderer2;
-  sidebarVisible: boolean = true;
+  public toggleMin$: Subject<any> = new Subject();
+  public toggleHide$: Subject<any> = new Subject();
 
-  constructor(private rendererFactory: RendererFactory2) {
-    this.renderer = rendererFactory.createRenderer(null, null);
-  }
-
-  toggleSidebar() {
-    this.sidebarVisible = !this.sidebarVisible;
-    if (this.sidebarVisible === false) {
-      this.renderer.removeClass(document.getElementById('app-sidebar'), 'c-sidebar-show');
-    } else {
-      this.renderer.addClass(document.getElementById('app-sidebar'), 'c-sidebar-show');
-    }
-    // triggering this event so that the mapbox api will auto resize the map
-    if (window.innerWidth > 640) {
-      setTimeout(() => {
-        window.dispatchEvent(new Event('resize'));
-      }, 500);
-    }
+  constructor() {
   }
 }

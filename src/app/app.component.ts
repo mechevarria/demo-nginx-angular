@@ -1,8 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { SidebarService } from './sidebar/sidebar.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
 export class AppComponent {
+  @ViewChild('sidebar', { read: ElementRef })
+  private sidebar: ElementRef;
+
+  constructor(private sidebarService: SidebarService) {
+    this.sidebarService.toggleMin$.subscribe(() => {
+      this.sidebar.nativeElement.classList.toggle('c-sidebar-minimized');
+    });
+    this.sidebarService.toggleHide$.subscribe(() => {
+      this.sidebar.nativeElement.classList.toggle('c-sidebar-show');
+    });
+  }
 }
