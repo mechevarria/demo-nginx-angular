@@ -27,7 +27,7 @@
               "node_modules/@coreui/icons/css/all.min.css",
               "node_modules/mapbox-gl/dist/mapbox-gl.css",
               "node_modules/@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css",
-              "node_modules/angular-notifier/styles.css",
+              "node_modules/ngx-toastr/toastr.css",
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
               "src/styles.scss"
             ],
