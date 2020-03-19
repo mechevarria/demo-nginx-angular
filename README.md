@@ -1,8 +1,10 @@
 # Frontend Angular
 
-Starter seed project for [Angular](https://angular.io/) and [Bootstrap](https://getbootstrap.com/).  This project was generated with [Angular CLI](https://github.com/angular/angular-cli). [coreui](https://coreui.io/docs/getting-started/introduction/) is already integrated.  The project is also configured as a [docker](https://docs.docker.com/install/) container
+Responsive web seed project for [Angular](https://angular.io/) and [Bootstrap](https://getbootstrap.com/).  This project was generated with [Angular CLI](https://github.com/angular/angular-cli). [CoreUI](https://coreui.io/docs/getting-started/introduction/) and [MapBox](https://www.mapbox.com) are already integrated.  The project is also configured as a [docker](https://docs.docker.com/install/) container
 
- ![screenshot.png](screenshot.png)
+ ![screenshot1.png](screenshot1.png)
+
+  ![screenshot2.png](screenshot2.png)
 
 ## Install
 
@@ -15,9 +17,13 @@ Starter seed project for [Angular](https://angular.io/) and [Bootstrap](https://
 
 > `npm run watch`
 
-* In a separate terminal run the express server
+* In a separate terminal prepare the docker nginx development container. You need to do this only *once* for development
 
->`npm run start`
+>`./docker-build-devh.sh`
+
+* Start the nginx docker container
+
+>`./docker-dev.sh`
 
 The server will be running on [http://localhost:8080](http://localhost:8080)
 
