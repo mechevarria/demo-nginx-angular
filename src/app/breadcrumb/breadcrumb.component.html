@@ -1,4 +1,4 @@
-<ol class="breadcrumb">
+<ol class="breadcrumb border-0 m-0 px-0 px-md-3">
   <li
     *ngFor="
       let breadcrumb of (breadcrumbs | async);
@@ -11,6 +11,6 @@
     <a *ngIf="!last" [routerLink]="[breadcrumb.url]">
       {{ breadcrumb.label }}
     </a>
-    <label *ngIf="last"> {{ breadcrumb.label }} </label>
+    <span *ngIf="last"> {{ breadcrumb.label }} </span>
   </li>
 </ol>
