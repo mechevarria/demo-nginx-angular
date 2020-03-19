@@ -6,6 +6,7 @@ import { SidebarService } from './sidebar.service';
   templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent implements OnInit {
+  isMin = false;
 
   constructor(private sidebarService: SidebarService) {
   }
@@ -17,7 +18,20 @@ export class SidebarComponent implements OnInit {
   }
 
   toggleMin(): void {
+    this.isMin = !this.isMin;
     this.sidebarService.toggleMin$.next();
+  }
+
+  mouseEnter(): void {
+    if(this.isMin) {
+      this.sidebarService.toggleMin$.next();
+    }
+  }
+
+  mouseLeave(): void {
+    if(this.isMin) {
+      this.sidebarService.toggleMin$.next();
+    }
   }
 
   ngOnInit() {}

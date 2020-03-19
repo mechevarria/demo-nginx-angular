@@ -12,9 +12,20 @@ export class AppComponent {
   constructor(private sidebarService: SidebarService) {
     this.sidebarService.toggleMin$.subscribe(() => {
       this.sidebar.nativeElement.classList.toggle('c-sidebar-minimized');
+      this.triggerResize();
     });
     this.sidebarService.toggleHide$.subscribe(() => {
       this.sidebar.nativeElement.classList.toggle('c-sidebar-show');
+      this.triggerResize();
     });
+  }
+
+  triggerResize(): void {
+    // triggering this event so that the mapbox api will auto resize the map
+    if (window.innerWidth > 640) {
+      setTimeout(() => {
+        window.dispatchEvent(new Event('resize'));
+      }, 200);
+    }
   }
 }
