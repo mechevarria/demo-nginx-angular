@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MessageItem } from './message-item';
 import { Subject } from 'rxjs/internal/Subject';
-import { NotifierService } from 'angular-notifier';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -9,26 +9,26 @@ import { NotifierService } from 'angular-notifier';
 export class MessageService {
   public newMessage$: Subject<MessageItem> = new Subject();
 
-  constructor(private notifierService: NotifierService) {
+  constructor(private toastr: ToastrService) {
   }
 
   success(msg: string): void {
-    this.notifierService.notify('success', msg);
+    this.toastr.success(msg);
     this.emitMessage('success', msg);
   }
 
   error(msg: string): void {
-    this.notifierService.notify('error', msg);
+    this.toastr.error(msg);
     this.emitMessage('error', msg);
   }
 
   info(msg: string): void {
-    this.notifierService.notify('info', msg);
+    this.toastr.info(msg);
     this.emitMessage('info', msg);
   }
 
   warning(msg: string): void {
-    this.notifierService.notify('warning', msg);
+    this.toastr.warning(msg);
     this.emitMessage('warning', msg);
   }
 

@@ -20,7 +20,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { AppMapComponent } from './app-map/app-map.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryApiService } from './in-memory-api.service';
-import { NotifierModule } from 'angular-notifier';
+import { ToastrModule } from 'ngx-toastr';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 
 @NgModule({
@@ -46,15 +46,8 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
     CommonModule,
     BrowserAnimationsModule,
     ChartsModule,
-    NotifierModule.withConfig({
-      position: {
-        horizontal: {
-          position: 'middle'
-        },
-        vertical : {
-          position: 'bottom'
-        }
-      }
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-center'
     }),
     // _env defined in assets/js/env.js
     NgxMapboxGLModule.withConfig({
