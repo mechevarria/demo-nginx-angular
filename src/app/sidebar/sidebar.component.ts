@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarService } from './sidebar.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,11 +10,11 @@ import { SidebarService } from './sidebar.service';
 export class SidebarComponent implements OnInit {
   isMin = false;
 
-  constructor(private sidebarService: SidebarService) {
+  constructor(private sidebarService: SidebarService, private deviceService: DeviceDetectorService) {
   }
 
   closeOnMobile(): void {
-    if (window.innerWidth < 640) {
+    if (this.deviceService.isMobile()) {
       this.sidebarService.toggleHide$.next();
     }
   }

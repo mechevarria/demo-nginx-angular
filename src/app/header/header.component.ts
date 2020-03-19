@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { MessageItem } from '../message/message-item';
 import { MessageHistoryService } from '../message/message-history.service';
 import { SidebarService } from '../sidebar/sidebar.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   styleUrls: ['./header.component.css'],
@@ -14,12 +15,12 @@ export class HeaderComponent implements OnInit {
   username: string = 'Guest';
   messages: MessageItem[];
 
-  constructor(private messageHistoryService: MessageHistoryService, public sidebarService: SidebarService) {
+  constructor(private messageHistoryService: MessageHistoryService, public sidebarService: SidebarService, private deviceService: DeviceDetectorService) {
   }
 
   @HostListener('window:resize', ['$event'])
   checkForMobile() {
-    if (window.innerWidth < 640) {
+    if (this.deviceService.isMobile()) {
       this.sidebarService.toggleHide$.next();
     }
   }

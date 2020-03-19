@@ -22,6 +22,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryApiService } from './in-memory-api.service';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
+import { DeviceDetectorModule } from 'ngx-device-detector';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
     CommonModule,
     BrowserAnimationsModule,
     ChartsModule,
+    DeviceDetectorModule.forRoot(),
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-center'
     }),
