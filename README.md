@@ -57,6 +57,4 @@ Dropdown components were created using [ngx-bootstrap](https://github.com/valor-
 
 Chart library by [ng2-charts](https://valor-software.com/ng2-charts/)
 
-Table implementation done with [angular-datatables](https://l-lin.github.io/angular-datatables/#/welcome)
-
-Toast notification done with [ngx-toastr](https://scttcper.github.io/ngx-toastr/)
+Toast notification done with [ngx-toastr](https://github.com/scttcper/ngx-toastr)
