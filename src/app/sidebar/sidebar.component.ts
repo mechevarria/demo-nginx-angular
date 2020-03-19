@@ -3,7 +3,8 @@ import { SidebarService } from './sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html'
+  templateUrl: './sidebar.component.html',
+  host: { 'class': 'c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-show' },
 })
 export class SidebarComponent implements OnInit {
   isMin = false;
@@ -23,16 +24,16 @@ export class SidebarComponent implements OnInit {
   }
 
   mouseEnter(): void {
-    if(this.isMin) {
+    if (this.isMin) {
       this.sidebarService.toggleMin$.next();
     }
   }
 
   mouseLeave(): void {
-    if(this.isMin) {
+    if (this.isMin) {
       this.sidebarService.toggleMin$.next();
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }
