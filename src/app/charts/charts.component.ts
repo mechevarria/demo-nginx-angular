@@ -7,8 +7,8 @@ import { Color } from 'ng2-charts'
   templateUrl: './charts.component.html'
 })
 export class ChartsComponent implements OnInit {
-  // colors pulled from https://coreui.io/docs/getting-started/ui-kit/
-  colors: Color[] = [{ backgroundColor: ['#f86c6b', '#20a8d8', '#ffc107', '#4dbd74', '#a4b7c1', '#63c2de', '#29363d'] }];
+  // colors pulled from https://coreui.io/demo/3.0.0/#colors.html
+  colors: Color[] = [{ backgroundColor: ['#321fdb', '#f9b115', '#e55353', '#3399ff', '#2eb85c', '#636f83', '#ced2d8'] }];
 
   doughnutChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
   doughnutChartData: number[] = [];
