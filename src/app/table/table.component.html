@@ -5,48 +5,29 @@
       <p class="card-text">
         Displaying <a href="https://jsonplaceholder.typicode.com/comments" target="_blank">/comments</a> from <a href="https://jsonplaceholder.typicode.com/" target="_blank">https://jsonplaceholder.typicode.com/</a>
       </p>
-      <div class="table-responsive">
-        <table class="table table-striped table-bordered">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>PostID</th>
-              <th>Name</th>
-              <th>E-mail</th>
-              <th>Body</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let comment of comments">
-              <td>{{ comment.id }}</td>
-              <td>{{ comment.postId }}</td>
-              <td>{{ comment.name }}</td>
-              <td>{{ comment.email }}</td>
-              <td class="app-comment">{{ comment.body }}</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="d-flex mb-3">
-          <div class="pt-3">
-            <label>Page Size:</label>
-          </div>
-          <div class="mr-auto p-2">
-            <select class="form-control ml-2" [(ngModel)]="limit" (change)="limitChanged()">
-              <option>10</option>
-              <option>50</option>
-              <option>100</option>
-            </select>
-          </div>
-          <div class="p-2">
-            <pagination
-              [itemsPerPage]="limit"
-              [boundaryLinks]="true"
-              [maxSize]="5"
-              [totalItems]="count"
-              [(ngModel)]="page"
-              (pageChanged)="pageChanged($event)"
-            ></pagination>
-          </div>
+      <table class="table table-responsive table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>PostID</th>
+            <th>Name</th>
+            <th>E-mail</th>
+            <th class="d-md-down-none">Body</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let comment of comments">
+            <td>{{ comment.id }}</td>
+            <td>{{ comment.postId }}</td>
+            <td>{{ comment.name }}</td>
+            <td>{{ comment.email }}</td>
+            <td class="d-md-down-none">{{ comment.body }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex mb-3">
+        <div class="p-2">
+          <pagination [itemsPerPage]="limit" [boundaryLinks]="true" [maxSize]="4" [totalItems]="count" [(ngModel)]="page" (pageChanged)="pageChanged($event)" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
         </div>
       </div>
     </div>

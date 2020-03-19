@@ -31,11 +31,6 @@ export class TableComponent implements OnInit {
     this.load();
   }
 
-  limitChanged(): void {
-    this.page = 1;
-    this.load();
-  }
-
   ngOnInit() {
     this.load();
   }
