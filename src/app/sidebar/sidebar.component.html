@@ -1,25 +1,25 @@
 <div class="c-sidebar-brand d-lg-down-none">
-  <img class="c-sidebar-brand-full" src="assets/img/ns2-logo-white.png" alt="NS2 logo" width="96" />
-  <img class="c-sidebar-brand-minimized" src="assets/img/ns2-logo-white.png" height="20" alt="NS2 Logo" />
+  <img class="c-sidebar-brand-full" src="assets/img/NS2-logo-white.png" alt="NS2 logo" width="86" />
+  <img class="c-sidebar-brand-minimized" src="assets/img/NS2-icon-white.png" height="30" alt="NS2 Logo" />
 </div>
-<ul class="c-sidebar-nav">
+<ul class="c-sidebar-nav" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()" (click)="closeOnMobile()">
   <li class="c-sidebar-nav-item">
-    <a class="c-sidebar-nav-link" routerLink="home/charts" routerLinkActive="c-sidebar-nav-link-primary" (click)="closeOnMobile()">
+    <a class="c-sidebar-nav-link" routerLink="home/charts" routerLinkActive="c-sidebar-nav-link-primary">
       <i class="c-sidebar-nav-icon cil-chart-pie"></i> Charts
     </a>
   </li>
   <li class="c-sidebar-nav-item">
-    <a class="c-sidebar-nav-link" routerLink="home/table" routerLinkActive="c-sidebar-nav-link-primary" (click)="closeOnMobile()">
+    <a class="c-sidebar-nav-link" routerLink="home/table" routerLinkActive="c-sidebar-nav-link-primary">
       <i class="c-sidebar-nav-icon cil-list"></i> Table
     </a>
   </li>
   <li class="c-sidebar-nav-item">
-    <a class="c-sidebar-nav-link" routerLink="home/form" routerLinkActive="c-sidebar-nav-link-primary" (click)="closeOnMobile()">
+    <a class="c-sidebar-nav-link" routerLink="home/form" routerLinkActive="c-sidebar-nav-link-primary">
       <i class="c-sidebar-nav-icon cil-notes"></i> Form
     </a>
   </li>
   <li class="c-sidebar-nav-item">
-    <a class="c-sidebar-nav-link" routerLink="home/map" routerLinkActive="c-sidebar-nav-link-primary" (click)="closeOnMobile()">
+    <a class="c-sidebar-nav-link" routerLink="home/map" routerLinkActive="c-sidebar-nav-link-primary">
       <i class="c-sidebar-nav-icon cil-map"></i> Map
     </a>
   </li>
