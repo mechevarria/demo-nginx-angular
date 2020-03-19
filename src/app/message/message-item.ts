@@ -1,10 +1,10 @@
 
 export class MessageItem {
-  className: string;
+  classes: string;
   text: string;
 
-  constructor(className: string, text: string) {
-    this.className = className;
+  constructor(classes: string, text: string) {
+    this.classes = classes;
     this.text = text;
   }
 }
