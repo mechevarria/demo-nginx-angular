@@ -13,8 +13,8 @@ export class InMemoryApiService implements InMemoryDbService {
         {
           type: 'Feature',
           properties: {
-            message: 'This is a red icon',
-            icon: 'red'
+            message: 'This is a danger icon',
+            icon: 'marker-danger.svg'
           },
           geometry: {
             type: 'Point',
@@ -24,8 +24,8 @@ export class InMemoryApiService implements InMemoryDbService {
         {
           type: 'Feature',
           properties: {
-            message: 'This is a green icon',
-            icon: 'green'
+            message: 'This is a success icon',
+            icon: 'marker-success.svg'
           },
           geometry: {
             type: 'Point',
@@ -35,8 +35,8 @@ export class InMemoryApiService implements InMemoryDbService {
         {
           type: 'Feature',
           properties: {
-            message: 'This is a blue icon',
-            icon: 'blue'
+            message: 'This is a info icon',
+            icon: 'marker-info.svg'
           },
           geometry: {
             type: 'Point',
@@ -46,8 +46,8 @@ export class InMemoryApiService implements InMemoryDbService {
         {
           type: 'Feature',
           properties: {
-            message: 'This is a grey icon',
-            icon: 'grey'
+            message: 'This is a primary icon',
+            icon: 'marker-primary.svg'
           },
           geometry: {
             type: 'Point',
@@ -57,8 +57,8 @@ export class InMemoryApiService implements InMemoryDbService {
         {
           type: 'Feature',
           properties: {
-            message: 'This is a yellow icon',
-            icon: 'yellow'
+            message: 'This is a warning icon',
+            icon: 'marker-warning.svg'
           },
           geometry: {
             type: 'Point',
