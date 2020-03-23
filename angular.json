@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "frontend-angular": {
+    "nginx-angular": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -53,18 +53,18 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "frontend-angular:build"
+            "browserTarget": "nginx-angular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "frontend-angular:build:production"
+              "browserTarget": "nginx-angular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "frontend-angular:build"
+            "browserTarget": "nginx-angular:build"
           }
         },
         "lint": {
@@ -77,5 +77,5 @@
       }
     }
   },
-  "defaultProject": "frontend-angular"
+  "defaultProject": "nginx-angular"
 }

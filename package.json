@@ -1,12 +1,12 @@
 {
-  "name": "frontend-angular",
+  "name": "nginx-angular",
   "description": "bootstrap/angular seed project based on angular-cli scaffolding",
   "author": "Mike Echevarria <mike.echevarria@gmail.com>",
   "version": "0.9.0",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mechevarria/frontend-angular.git"
+    "url": "https://github.com/mechevarria/nginx-angular.git"
   },
   "ng": "node_modules/@angular/cli/bin/ng",
   "scripts": {
