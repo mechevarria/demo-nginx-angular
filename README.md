@@ -19,13 +19,13 @@ Responsive web seed project for [Angular](https://angular.io/) and [Bootstrap](h
 
 * In a separate terminal prepare the docker nginx development container. You need to do this only *once* for development
 
->`./docker-build-devh.sh`
+>`./docker-build-dev.sh`
 
 * Start the nginx docker container
 
->`./docker-dev.sh`
+>`./docker-run-dev.sh`
 
-The server will be running on [http://localhost:8080](http://localhost:8080)
+The server will be running on [http://localhost](http://localhost)
 
 ## Code scaffolding
 
