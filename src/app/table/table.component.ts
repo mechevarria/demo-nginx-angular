@@ -13,12 +13,15 @@ export class TableComponent implements OnInit {
   count: number = 0;
   limit: number = 10;
   page: number = 1;
+  loading: boolean = false;
 
   constructor(private commentService: CommentService) {
   }
 
   load(): void {
+    this.loading = true;
     this.commentService.getComments(this.page, this.limit).subscribe(res => {
+      this.loading = false;
       if (res !== null) {
         this.comments = res.body;
         this.count = parseInt(res.headers.get('x-total-count'));
