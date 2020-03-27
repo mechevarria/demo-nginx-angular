@@ -3,6 +3,7 @@ import { MessageItem } from '../message/message-item';
 import { MessageHistoryService } from '../message/message-history.service';
 import { SidebarService } from '../sidebar/sidebar.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { KeycloakService } from 'keycloak-angular';
 
 @Component({
   styleUrls: ['./header.component.css'],
@@ -10,12 +11,16 @@ import { DeviceDetectorService } from 'ngx-device-detector';
   templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
+  accountUrl: string;
   isLoggedIn: boolean = false;
   sidebarVisible: boolean = true;
   username: string = 'Guest';
   messages: MessageItem[];
 
-  constructor(private messageHistoryService: MessageHistoryService, public sidebarService: SidebarService, private deviceService: DeviceDetectorService) {
+  constructor(private messageHistoryService: MessageHistoryService,
+    public sidebarService: SidebarService,
+    private deviceService: DeviceDetectorService,
+    private keycloak: KeycloakService) {
   }
 
   @HostListener('window:resize', ['$event'])
@@ -27,13 +32,13 @@ export class HeaderComponent implements OnInit {
 
   doLogout(): void {
     if (this.isLoggedIn) {
-      // this.keycloak.logout();
+      this.keycloak.logout();
     }
   }
 
   doAccount(): void {
     if (this.isLoggedIn) {
-      // window.open(this.accountUrl, '_blank');
+      window.open(this.accountUrl, '_blank');
     }
   }
 
@@ -43,6 +48,16 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.messages = this.messageHistoryService.getHistory();
+
+    this.keycloak.isLoggedIn().then(isLoggedIn => {
+      if (isLoggedIn) {
+        this.isLoggedIn = true;
+        this.username = this.keycloak.getUsername();
+
+        const instance = this.keycloak.getKeycloakInstance();
+        this.accountUrl = `${instance.authServerUrl}/realms/${instance.realm}/account`;
+      }
+    });
   }
 
   ngAfterViewInit(): void {

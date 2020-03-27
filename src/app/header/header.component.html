@@ -34,13 +34,9 @@
         <div class="dropdown-header bg-light text-center">
           <strong>{{ username }}</strong>
         </div>
-        <a class="dropdown-item app-pointer">
-    <li (click)="doAccount()"><i class="mr-1 c-icon cil-shield-alt"></i> Account</li>
-    </a>
-    <a class="dropdown-item app-pointer">
-      <li (click)="doLogout()"><i class="mr-1 c-icon cil-account-logout"></i> Logout</li>
-    </a>
-    </div>
+        <a class="dropdown-item app-pointer" (click)="doAccount()"><i class="mr-1 c-icon cil-shield-alt"></i> Account</a>
+        <a class="dropdown-item app-pointer" (click)="doLogout()"><i class="mr-1 c-icon cil-account-logout"></i> Logout</a>
+      </div>
     </li>
   </ul>
 

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -23,6 +23,12 @@ import { InMemoryApiService } from './in-memory-api.service';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { DeviceDetectorModule } from 'ngx-device-detector';
+import { KeycloakAngularModule } from 'keycloak-angular';
+import { AppInitService } from './app-init.service';
+
+export function init(appInitService: AppInitService) {
+  return () => appInitService.init();
+}
 
 @NgModule({
   declarations: [
@@ -58,9 +64,17 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
     HttpClientInMemoryWebApiModule.forRoot(InMemoryApiService, {
       dataEncapsulation: false,
       passThruUnknownUrl: true
-    })
+    }),
+    KeycloakAngularModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: init,
+      multi: true,
+      deps: [AppInitService]
+    }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
