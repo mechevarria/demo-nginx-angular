@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { NgModule, APP_INITIALIZER, DoBootstrap, ApplicationRef } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -23,12 +23,9 @@ import { InMemoryApiService } from './in-memory-api.service';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { DeviceDetectorModule } from 'ngx-device-detector';
-import { KeycloakAngularModule } from 'keycloak-angular';
-import { AppInitService } from './app-init.service';
+import { KeycloakAngularModule, KeycloakService, KeycloakOptions } from 'keycloak-angular';
 
-export function init(appInitService: AppInitService) {
-  return () => appInitService.init();
-}
+const keycloakService = new KeycloakService();
 
 @NgModule({
   declarations: [
@@ -69,12 +66,37 @@ export function init(appInitService: AppInitService) {
   ],
   providers: [
     {
-      provide: APP_INITIALIZER,
-      useFactory: init,
-      multi: true,
-      deps: [AppInitService]
+      provide: KeycloakService,
+      useValue: keycloakService
     }
   ],
-  bootstrap: [AppComponent]
+  entryComponents: [AppComponent]
 })
-export class AppModule { }
+export class AppModule implements DoBootstrap {
+  ngDoBootstrap(appRef: ApplicationRef) {
+
+    if (window['_env'].keycloak.enabled === 'true') {
+      const options: KeycloakOptions = {
+        config: {
+          realm: window['_env'].keycloak.realm,
+          url: window['_env'].keycloak.url,
+          clientId: window['_env'].keycloak.id
+        },
+        initOptions: {
+          onLoad: 'login-required'
+        }
+      };
+
+      keycloakService
+        .init(options)
+        .then(() => {
+          console.log('[ngDoBootstrap] keycloak init complete');
+          appRef.bootstrap(AppComponent);
+        })
+        .catch(error => console.error('[ngDoBootstrap] init Keycloak failed', error));
+    } else {
+      console.log('[ngDoBootstrap] keycloak is not enabled');
+      appRef.bootstrap(AppComponent);
+    }
+  }
+}
