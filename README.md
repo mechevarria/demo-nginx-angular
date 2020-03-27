@@ -1,6 +1,6 @@
 # Nginx Angular
 
-Responsive [Angular](https://angular.io/) and [Bootstrap](https://getbootstrap.com/) web application. This project was generated with [Angular CLI](https://github.com/angular/angular-cli). [CoreUI](https://coreui.io/docs/getting-started/introduction/) and [MapBox](https://www.mapbox.com) are already integrated as well as API integration with [JSONPlaceholder](https://jsonplaceholder.typicode.com/). The project is also configured as a [docker](https://docs.docker.com/install/) container that can be deployed on [SAP Cloud Platform](https://www.sap.com/products/cloud-platform.html)
+Responsive [Angular](https://angular.io/) and [Bootstrap](https://getbootstrap.com/) web application. This project was generated with [Angular CLI](https://github.com/angular/angular-cli). [Keycloak Angular](https://github.com/mauriciovigolo/keycloak-angular) for Single Sign-On, [CoreUI](https://coreui.io/docs/getting-started/introduction/) and [MapBox](https://www.mapbox.com) are already integrated as well as API integration with [JSONPlaceholder](https://jsonplaceholder.typicode.com/). The project is also configured as a [docker](https://docs.docker.com/install/) container that can be deployed on [SAP Cloud Platform](https://www.sap.com/products/cloud-platform.html)
 
 ![image.png](screenshots/screenshot1.png)
 
@@ -81,6 +81,8 @@ npm run watch
 ## Further help
 
 * Learn more about development on SAP Cloud Platform with this [tutorial](https://developers.sap.com/mission.scp-1-start-developing.html)
+
+* [Keycloak](https://www.keycloak.org/) for Open Source application Single Sign-On
 
 * To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
