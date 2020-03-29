@@ -1,6 +1,6 @@
 <header class="c-header c-header-light c-header-fixed">
   <!-- shown in mobile view -->
-  <button class="c-header-toggler c-class-toggler d-lg-none mfe-auto" type="button" (click)="sidebarService.toggleHide$.next()">
+  <button class="c-header-toggler c-class-toggler d-lg-none mfe-auto" type="button" (click)="toggleSidebar()">
     <i class="c-icon c-icon-lg cil-menu"></i>
   </button>
   <a class="c-header-brand d-lg-none c-header-brand-sm-up-center" routerLink="home">
@@ -8,7 +8,7 @@
   </a>
 
   <!-- toggle sidebar -->
-  <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" (click)="sidebarService.toggleHide$.next()" responsive="true">
+  <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" (click)="toggleSidebar()" responsive="true">
     <i class="c-icon c-icon-lg cil-menu"></i>
   </button>
 

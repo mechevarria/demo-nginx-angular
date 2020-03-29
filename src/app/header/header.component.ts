@@ -1,8 +1,7 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MessageItem } from '../message/message-item';
 import { MessageHistoryService } from '../message/message-history.service';
 import { SidebarService } from '../sidebar/sidebar.service';
-import { DeviceDetectorService } from 'ngx-device-detector';
 import { KeycloakService } from 'keycloak-angular';
 
 @Component({
@@ -17,17 +16,11 @@ export class HeaderComponent implements OnInit {
   username: string = 'Guest';
   messages: MessageItem[];
 
-  constructor(private messageHistoryService: MessageHistoryService,
-    public sidebarService: SidebarService,
-    private deviceService: DeviceDetectorService,
-    private keycloak: KeycloakService) {
+  constructor(private messageHistoryService: MessageHistoryService, private sidebarService: SidebarService, private keycloak: KeycloakService) {
   }
 
-  @HostListener('window:resize', ['$event'])
-  checkForMobile() {
-    if (this.deviceService.isMobile()) {
-      this.sidebarService.toggleHide$.next();
-    }
+  toggleSidebar(): void {
+    this.sidebarService.toggleHide$.next();
   }
 
   doLogout(): void {
@@ -58,10 +51,5 @@ export class HeaderComponent implements OnInit {
         this.accountUrl = `${instance.authServerUrl}/realms/${instance.realm}/account`;
       }
     });
-  }
-
-  ngAfterViewInit(): void {
-    // hide sidebar by default on mobile
-    this.checkForMobile();
   }
 }
