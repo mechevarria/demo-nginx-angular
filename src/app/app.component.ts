@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SidebarService } from './sidebar/sidebar.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
@@ -6,9 +6,9 @@ import { DeviceDetectorService } from 'ngx-device-detector';
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit {
   isMin: boolean = false;
-  isHid: boolean = false;
+  isShown: boolean = true;
 
   constructor(private sidebarService: SidebarService, private deviceService: DeviceDetectorService) {
     this.sidebarService.toggleMin$.subscribe(() => {
@@ -16,7 +16,7 @@ export class AppComponent implements AfterViewInit {
       this.triggerResize();
     });
     this.sidebarService.toggleHide$.subscribe(() => {
-      this.isHid = !this.isHid;
+      this.isShown = !this.isShown;
       this.triggerResize();
     });
   }
@@ -30,10 +30,18 @@ export class AppComponent implements AfterViewInit {
     }
   }
 
-  ngAfterViewInit(): void {
+  doHide(): void {
+    this.sidebarService.toggleHide$.next();
+  }
+
+  isMobile(): boolean {
+    return this.deviceService.isMobile();
+  }
+
+  ngOnInit(): void {
     // hide sidebar by default on mobile
     if (this.deviceService.isMobile()) {
-      this.sidebarService.toggleHide$.next();
+      this.isShown = false;
     }
   }
 }

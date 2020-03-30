@@ -1,4 +1,5 @@
-<app-sidebar [ngClass]="{'c-sidebar-minimized': isMin,'c-sidebar-show': !isHid}"></app-sidebar>
+<app-sidebar [ngClass]="{'c-sidebar-minimized': isMin,'c-sidebar-show': isShown}">
+</app-sidebar>
 <div class="c-wrapper">
   <app-header></app-header>
   <div class="c-body">
@@ -15,3 +16,4 @@
     </footer>
   </div>
 </div>
+<div [ngClass]="{'c-sidebar-backdrop c-fade c-show': isShown && isMobile()}" (click)="doHide()"></div>
