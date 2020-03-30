@@ -5,7 +5,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  host: { 'class': 'c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-show' },
+  host: { 'class': 'c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-show' }
 })
 export class SidebarComponent implements OnInit {
   isMin = false;

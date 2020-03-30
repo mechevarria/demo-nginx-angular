@@ -4,29 +4,29 @@
     <img class="c-sidebar-brand-minimized" src="assets/img/NS2-icon-white.svg" height="30" alt="NS2 Logo" />
   </a>
 </div>
-<ul class="c-sidebar-nav" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()" (click)="closeOnMobile()">
+<ul class="c-sidebar-nav" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()">
   <li class="c-sidebar-nav-item">
-    <a class="c-sidebar-nav-link" routerLink="home/charts" routerLinkActive="c-sidebar-nav-link-primary">
+    <a class="c-sidebar-nav-link" routerLink="home/charts" routerLinkActive="c-sidebar-nav-link-primary" (click)="closeOnMobile()">
       <i class="c-sidebar-nav-icon cil-chart-pie"></i> Charts
     </a>
   </li>
   <li class="c-sidebar-nav-item">
-    <a class="c-sidebar-nav-link" routerLink="home/table" routerLinkActive="c-sidebar-nav-link-primary">
+    <a class="c-sidebar-nav-link" routerLink="home/table" routerLinkActive="c-sidebar-nav-link-primary" (click)="closeOnMobile()">
       <i class="c-sidebar-nav-icon cil-list"></i> Table
     </a>
   </li>
   <li class="c-sidebar-nav-item">
-    <a class="c-sidebar-nav-link" routerLink="home/form" routerLinkActive="c-sidebar-nav-link-primary">
+    <a class="c-sidebar-nav-link" routerLink="home/form" routerLinkActive="c-sidebar-nav-link-primary" (click)="closeOnMobile()">
       <i class="c-sidebar-nav-icon cil-notes"></i> Form
     </a>
   </li>
   <li class="c-sidebar-nav-item">
-    <a class="c-sidebar-nav-link" routerLink="home/map" routerLinkActive="c-sidebar-nav-link-primary">
+    <a class="c-sidebar-nav-link" routerLink="home/map" routerLinkActive="c-sidebar-nav-link-primary" (click)="closeOnMobile()">
       <i class="c-sidebar-nav-icon cil-map"></i> Map
     </a>
   </li>
   <li class="c-sidebar-nav-item">
-    <a class="c-sidebar-nav-link" href="https://github.com/mechevarria" target="_blank">
+    <a class="c-sidebar-nav-link" href="https://github.com/mechevarria" target="_blank" (click)="closeOnMobile()">
       <i class="c-sidebar-nav-icon cib-github"></i> Github
     </a>
   </li>
