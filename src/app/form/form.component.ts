@@ -8,15 +8,19 @@ import { User } from './user';
 })
 export class FormComponent implements OnInit {
   model: User;
+  isBusy: boolean = false;
 
   constructor(private messageService: MessageService) {
     this.model = new User();
   }
 
   submit() {
-    this.messageService.success(
-      `Submitted lastName: ${this.model.lastName}, firstName: ${this.model.firstName}, Group: ${this.model.group}`
-    );
+    this.isBusy = true;
+    setTimeout(() => {
+      this.messageService.success(`Submitted lastName: ${this.model.lastName}, firstName: ${this.model.firstName}, Group: ${this.model.group}`);
+      this.isBusy = false;
+    }, 1000);
+
   }
 
   clear() {
@@ -24,5 +28,5 @@ export class FormComponent implements OnInit {
     this.messageService.info('Cleared form');
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }
