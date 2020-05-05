@@ -1,5 +1,5 @@
 # build using nodejs
-FROM node:10 as builder
+FROM node:12 as builder
 
 WORKDIR /usr/src/app
 

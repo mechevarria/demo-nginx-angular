@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "nginx-angular": {
+    "demo-nginx-angular": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -53,18 +53,18 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "nginx-angular:build"
+            "browserTarget": "demo-nginx-angular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "nginx-angular:build:production"
+              "browserTarget": "demo-nginx-angular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "nginx-angular:build"
+            "browserTarget": "demo-nginx-angular:build"
           }
         },
         "lint": {
@@ -77,5 +77,5 @@
       }
     }
   },
-  "defaultProject": "nginx-angular"
+  "defaultProject": "demo-nginx-angular"
 }

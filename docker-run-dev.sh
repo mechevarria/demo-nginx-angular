@@ -5,4 +5,4 @@ docker run \
   --env MAPBOX_TOKEN=$MAPBOX_TOKEN \
   --env KEYCLOAK=$KEYCLOAK \
   --mount type=bind,source=${PWD}/dist,target=/usr/share/nginx/html \
-  quay.io/mechevarria/nginx-angular
+  quay.io/mechevarria/demo-nginx-angular
