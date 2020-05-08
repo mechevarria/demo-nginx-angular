@@ -10,12 +10,15 @@ Responsive [Angular](https://angular.io/) and [Bootstrap](https://getbootstrap.c
 
 >You can create a public registry with security scanning for free at [Quay.io](https://quay.io)
 
-* Build and push the image with this script.
+>For the map to work you need a Mapbox api token. You can create an account for free at [Mapbox](https://www.mapbox.com/)
+
+* Build and push the image with this script. You will have to edit the quay.io registry endpoint for the push command to work
 ```bash
 docker-build.sh
 ```
 
 * Run the continer with this script
+> The `$MAPBOX_TOKEN` variable must be set for the map to work
 ```bash
 docker-run.sh
 ```
@@ -35,6 +38,7 @@ cf-login.sh
 ![image.png](screenshots/cf-cockpit.png)
 
 * Then deploy your container with
+> The `$MAPBOX_TOKEN` variable must be set for the map to work
 
 ```bash
 cf-push.sh
@@ -73,6 +77,12 @@ npm run watch
 ## Production Build
 
 * Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Keycloak configuration
+
+* Default configuration has keycloak integration disabled. To enable, set the runtime environment variable `KEYCLOAK` to **true**
+* The `KEYCLOAK_URL` variable is externalized to allow deployment to different environments and passed via the `docker-run.sh`, `docker-run-dev.sh` and `cf-push.sh` scripts.
+* Complete keycloak configuration is located in [env.template.js](https://github.com/mechevarria/demo-nginx-angular/blob/master/src/assets/js/env.template.js). This file replaces variables with the `envsubst` command when the nginx container is started.
 
 ## Code scaffolding
 
