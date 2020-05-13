@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-app=$(whoami)-demo-nginx-angular
+app=demo-nginx-angular
 
 cf push $app \
     -m 64M \
