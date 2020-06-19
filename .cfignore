@@ -1,0 +1,13 @@
+node_modules
+screenshots
+src
+nginx
+Dockerfile*
+docker-*
+cf-*
+package.json
+package-lock.json
+custom-webpack.config.js
+tsconfig.json
+tslint.json
+*.code-workspace
