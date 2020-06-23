@@ -8,7 +8,6 @@ app=demo-nginx-angular
 cf push $app \
     -m 64M \
     -k 1024M \
-    -b https://github.com/cloudfoundry/nodejs-buildpack \
     -b https://github.com/cloudfoundry/nginx-buildpack.git \
     -c '$HOME/cf-custom-command.sh' \
     --no-start
@@ -16,6 +15,5 @@ cf push $app \
 cf se $app MAPBOX_TOKEN $MAPBOX_TOKEN
 cf se $app KEYCLOAK_URL $KEYCLOAK_URL
 cf se $app KEYCLOAK false
-cf se $app NPM_CONFIG_PRODUCTION false
 
 cf start $app
