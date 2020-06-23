@@ -1,10 +1,21 @@
 #!/usr/bin/env bash
 
-set -e
+echo "Building assets local"
+npm run build
 
-envsubst < dist/assets/js/env.template.js > dist/assets/js/env.js
+app=demo-nginx-angular
 
-cf push demo-nginx-angular \
+cf push $app \
     -m 64M \
-    -k 256M \
-    -b https://github.com/cloudfoundry/nginx-buildpack.git
+    -k 1024M \
+    -b https://github.com/cloudfoundry/nodejs-buildpack \
+    -b https://github.com/cloudfoundry/nginx-buildpack.git \
+    -c '$HOME/cf-custom-command.sh' \
+    --no-start
+
+cf se $app MAPBOX_TOKEN $MAPBOX_TOKEN
+cf se $app KEYCLOAK_URL $KEYCLOAK_URL
+cf se $app KEYCLOAK false
+cf se $app NPM_CONFIG_PRODUCTION false
+
+cf start $app
