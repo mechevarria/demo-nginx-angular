@@ -8,12 +8,11 @@
     "type": "git",
     "url": "https://github.com/mechevarria/demo-nginx-angular.git"
   },
-  "ng": "node_modules/@angular/cli/bin/ng",
   "scripts": {
-    "ng": "$npm_package_ng",
-    "build": "$npm_package_ng build --delete-output-path --prod",
-    "watch": "$npm_package_ng build --watch",
-    "lint": "$npm_package_ng lint"
+    "ng": "npx ng",
+    "build": "npx ng build --delete-output-path --prod",
+    "watch": "npx ng build --watch",
+    "lint": "npx ng lint"
   },
   "engines": {
     "node": "~12.18.0",
