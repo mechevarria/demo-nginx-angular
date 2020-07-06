@@ -10,7 +10,7 @@ fi
 echo "Building to 'dist'"
 npm run build
 
-app=demo-nginx-angular
+app=demo-buildpack-angular
 
 cf push $app \
     -m 64M \
