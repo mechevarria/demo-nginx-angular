@@ -10,7 +10,7 @@
   },
   "scripts": {
     "ng": "npx ng",
-    "build": "npx ng build --delete-output-path --prod",
+    "build": "npx ng build --prod",
     "prestart": "npx envsub ./src/assets/js/env.template.js ./src/assets/js/env.js",
     "start": "npx ng serve"
   },

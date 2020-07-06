@@ -1,6 +1,6 @@
 node_modules
 screenshots
-nginx
+default.conf
 Dockerfile*
 docker-*
 *.code-workspace

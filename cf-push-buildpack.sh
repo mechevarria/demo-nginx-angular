@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
-echo "Building assets local"
+# delete local development environment settings
+envfile="./src/assets/js/env.js"
+
+if [ -f $envfile ] ; then
+    rm $envfile
+fi
+
+echo "Building to 'dist'"
 npm run build
 
 app=demo-nginx-angular
