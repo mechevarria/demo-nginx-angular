@@ -13,6 +13,20 @@
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "chart.js",
+              "keycloak-js",
+              "js-sha256",
+              "@mapbox/mapbox-gl-draw",
+              "rxjs/index",
+              "rxjs/internal/Subject",
+              "rxjs/internal/observable/of",
+              "rxjs/internal/operators/catchError",
+              "@mapbox/mapbox-gl-geocoder",
+              "@mapbox/mapbox-sdk/services/geocoding",
+              "suggestions",
+              "@mapbox/mapbox-sdk"
+            ],
             "customWebpackConfig": {
               "path": "./custom-webpack.config.js"
             },
@@ -56,7 +70,8 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "demo-nginx-angular:build"
+            "browserTarget": "demo-nginx-angular:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
