@@ -1,6 +1,6 @@
 # Nginx Angular Demo
 
-Responsive [Angular](https://angular.io/) and [Bootstrap](https://getbootstrap.com/) web application. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) and is fully compatible. [Keycloak Angular](https://github.com/mauriciovigolo/keycloak-angular) for Single Sign-On, [CoreUI](https://coreui.io/docs/getting-started/introduction/) and [MapBox](https://www.mapbox.com) are already integrated as well as API integration with [JSONPlaceholder](https://jsonplaceholder.typicode.com/). The project can be deployed as a [docker](https://docs.docker.com/install/) container or pushed directly with a [buildpack](https://docs.cloudfoundry.org/buildpacks/nginx/index.html) to [SAP Cloud Platform](https://www.sap.com/products/cloud-platform.html)
+Responsive [Angular](https://angular.io/) and [Bootstrap](https://getbootstrap.com/) web application. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) and is fully compatible. [Keycloak Angular](https://github.com/mauriciovigolo/keycloak-angular) for Single Sign-On, [CoreUI](https://coreui.io/docs/getting-started/introduction/) and [Leaflet](https://leafletjs.com/) are already integrated as well as API integration with [JSONPlaceholder](https://jsonplaceholder.typicode.com/). The project can be deployed as a [docker](https://docs.docker.com/install/) container or pushed directly with a [buildpack](https://docs.cloudfoundry.org/buildpacks/nginx/index.html) to [SAP Cloud Platform](https://www.sap.com/products/cloud-platform.html)
 
 ![image.png](screenshots/screenshot1.png)
 
@@ -12,8 +12,6 @@ Responsive [Angular](https://angular.io/) and [Bootstrap](https://getbootstrap.c
 ```bash
 npm install
 ```
-
->For the map to work you need a Mapbox api token. You can create an account for free at [Mapbox](https://www.mapbox.com/)
 
 ## Development Server
 
@@ -37,7 +35,6 @@ docker-build.sh
 ```
 
 * Run the continer with this script
-> The `$MAPBOX_TOKEN` variable must be set for the map to work
 ```bash
 docker-run.sh
 ```
@@ -59,7 +56,6 @@ cf-login.sh
 ### Docker
 
 * Deploy a docker container with the following command
-> The `$MAPBOX_TOKEN` variable must be set for the map to work
 
 ```bash
 cf-push-docker.sh
@@ -68,7 +64,6 @@ cf-push-docker.sh
 ### Buildpack
 
 * Push your code directly without the need of a container registry with the following command
-> The `$MAPBOX_TOKEN` variable must be set for the map to work
 
 ```bash
 cf-push-buildpack.sh
@@ -98,7 +93,7 @@ cf-push-buildpack.sh
 
 * To get started with Angular, this is an excellent official [tutorial](https://angular.io/tutorial)
 
-* Mapbox component provided by [ngx-mapbox-gl](https://github.com/Wykks/ngx-mapbox-gl)
+* Leaflet component provided by [ngx-leaflet](https://github.com/Asymmetrik/ngx-leaflet)
 
 * Bootstrap components were created using [ngx-bootstrap](https://github.com/valor-software/ngx-bootstrap)
 
