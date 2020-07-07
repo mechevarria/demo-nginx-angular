@@ -2,29 +2,17 @@
   <div class="card">
     <div class="card-header">Map</div>
     <div class="card-body">
-      <mgl-map
-        [style]="'mapbox://styles/mapbox/streets-v9'"
-        [zoom]="[6]"
-        [center]="[-65.017, -16.457]"
-        (load)="loadMap($event)"
-        *ngIf="geojson"
-      >
-        <span *ngFor="let feature of geojson.features">
-          <mgl-marker [lngLat]="feature.geometry.coordinates" #marker>
-            <!-- icons from https://iconscout.com/icon/location-62-->
-            <div
-              class="marker"
-              [ngStyle]="{
-                'background-image':'url(assets/img/' + feature.properties.icon + ')'
-              }"
-            >
-            </div>
-          </mgl-marker>
-          <mgl-popup [marker]="marker" [offset]="[0, -15]">
-            <div class="card-text">{{ feature.properties.message }}</div>
-          </mgl-popup>
-        </span>
-      </mgl-map>
+      <div class="app-map" 
+        leaflet
+        leafletDraw
+        [leafletOptions]="options"
+        [leafletLayersControl]="layersControl"
+        [leafletDrawOptions]="drawOptions"
+        (leafletMapReady)="onMapReady($event)"
+        (leafletDrawCreated)="onDrawCreated($event)">
+        <div [leafletLayer]="drawItems"></div>
+        <div [leafletLayer]="geojsonLayer"></div>
+      </div>
     </div>
   </div>
 </div>

@@ -13,21 +13,10 @@ export class AppComponent implements OnInit {
   constructor(private sidebarService: SidebarService, private deviceService: DeviceDetectorService) {
     this.sidebarService.toggleMin$.subscribe(() => {
       this.isMin = !this.isMin;
-      this.triggerResize();
     });
     this.sidebarService.toggleHide$.subscribe(() => {
       this.isShown = !this.isShown;
-      this.triggerResize();
     });
-  }
-
-  triggerResize(): void {
-    // triggering this event so that the mapbox will auto resize the map
-    if (this.deviceService.isDesktop()) {
-      setTimeout(() => {
-        window.dispatchEvent(new Event('resize'));
-      }, 200);
-    }
   }
 
   doHide(): void {

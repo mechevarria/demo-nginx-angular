@@ -23,9 +23,10 @@ import { AppMapComponent } from './app-map/app-map.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryApiService } from './in-memory-api.service';
 import { ToastrModule } from 'ngx-toastr';
-import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { KeycloakAngularModule, KeycloakService, KeycloakOptions } from 'keycloak-angular';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { LeafletDrawModule} from '@asymmetrik/ngx-leaflet-draw';
 
 const keycloakService = new KeycloakService();
 
@@ -57,14 +58,13 @@ const keycloakService = new KeycloakService();
       positionClass: 'toast-bottom-center'
     }),
     // _env defined in assets/js/env.js
-    NgxMapboxGLModule.withConfig({
-      accessToken: window['_env'].mapboxToken
-    }),
     HttpClientInMemoryWebApiModule.forRoot(InMemoryApiService, {
       dataEncapsulation: false,
       passThruUnknownUrl: true
     }),
-    KeycloakAngularModule
+    KeycloakAngularModule,
+    LeafletModule,
+    LeafletDrawModule
   ],
   providers: [
     {
