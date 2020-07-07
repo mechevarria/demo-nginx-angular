@@ -11,25 +11,17 @@
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "allowedCommonJsDependencies": [
               "chart.js",
               "keycloak-js",
               "js-sha256",
-              "@mapbox/mapbox-gl-draw",
               "rxjs/index",
               "rxjs/internal/Subject",
               "rxjs/internal/observable/of",
-              "rxjs/internal/operators/catchError",
-              "@mapbox/mapbox-gl-geocoder",
-              "@mapbox/mapbox-sdk/services/geocoding",
-              "suggestions",
-              "@mapbox/mapbox-sdk"
+              "rxjs/internal/operators/catchError"
             ],
-            "customWebpackConfig": {
-              "path": "./custom-webpack.config.js"
-            },
             "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -43,8 +35,8 @@
             "styles": [
               "node_modules/@coreui/coreui/dist/css/coreui.min.css",
               "node_modules/@coreui/icons/css/all.min.css",
-              "node_modules/mapbox-gl/dist/mapbox-gl.css",
-              "node_modules/@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css",
+              "node_modules/leaflet/dist/leaflet.css",
+              "node_modules/leaflet-draw/dist/leaflet.draw.css",
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
               "src/styles.scss"
@@ -68,7 +60,7 @@
           }
         },
         "serve": {
-          "builder": "@angular-builders/custom-webpack:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "demo-nginx-angular:build",
             "proxyConfig": "proxy.conf.json"
@@ -83,17 +75,6 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "demo-nginx-angular:build"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
