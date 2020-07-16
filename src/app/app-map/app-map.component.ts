@@ -3,6 +3,7 @@ import { AppMapService } from './app-map.service';
 import { MessageService } from '../message/message.service';
 import * as L from 'leaflet';
 import '@geoman-io/leaflet-geoman-free';
+import './geoman';
 
 @Component({
   selector: 'app-app-map',
@@ -10,8 +11,7 @@ import '@geoman-io/leaflet-geoman-free';
   styleUrls: ['./app-map.component.css']
 })
 export class AppMapComponent implements OnInit {
-  // cannot use L.Map type due to geoman extensions
-  map: any;
+  map: GmMap;
   layersControl: any = {
     baseLayers: {
       'Open Street Map': L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -24,7 +24,7 @@ export class AppMapComponent implements OnInit {
       })
     }
   }
-  geomanControls: any = {
+  geomanControls: GmControlOptions = {
     position: 'topleft',
     drawMarker: false,
     drawCircleMarker: false,
@@ -38,7 +38,7 @@ export class AppMapComponent implements OnInit {
     pinningOption: false,
     snappingOption: false
   };
-  drawItems: any = L.featureGroup();
+  drawItems: GmFeatureGroup = L.featureGroup();
   options: L.MapOptions = {
     layers: [
       this.layersControl.baseLayers['Open Street Map']
@@ -62,7 +62,7 @@ export class AppMapComponent implements OnInit {
       
       // only keep the last polygon drawn
       if (this.drawItems.pm._layers.length > 1) {
-        const layerId: Number = this.drawItems.pm._layers[0]._leaflet_id;
+        const layerId: number = this.drawItems.pm._layers[0]._leaflet_id;
         this.drawItems.removeLayer(layerId);
       }
     });
