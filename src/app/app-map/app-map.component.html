@@ -2,16 +2,9 @@
   <div class="card">
     <div class="card-header">Map</div>
     <div class="card-body">
-      <div class="app-map" 
-        leaflet
-        leafletDraw
-        [leafletOptions]="options"
-        [leafletLayersControl]="layersControl"
-        [leafletDrawOptions]="drawOptions"
-        (leafletMapReady)="onMapReady($event)"
-        (leafletDrawCreated)="onDrawCreated($event)">
-        <div [leafletLayer]="drawItems"></div>
+      <div class="app-map" leaflet [leafletOptions]="options" [leafletLayersControl]="layersControl" (leafletMapReady)="onMapReady($event)">
         <div [leafletLayer]="geojsonLayer"></div>
+        <div [leafletLayer]="drawItems"></div>
       </div>
     </div>
   </div>

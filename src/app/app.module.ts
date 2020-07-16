@@ -26,7 +26,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { KeycloakAngularModule, KeycloakService, KeycloakOptions } from 'keycloak-angular';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { LeafletDrawModule} from '@asymmetrik/ngx-leaflet-draw';
 
 const keycloakService = new KeycloakService();
 
@@ -63,8 +62,7 @@ const keycloakService = new KeycloakService();
       passThruUnknownUrl: true
     }),
     KeycloakAngularModule,
-    LeafletModule,
-    LeafletDrawModule
+    LeafletModule
   ],
   providers: [
     {
