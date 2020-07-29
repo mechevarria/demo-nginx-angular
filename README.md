@@ -63,7 +63,8 @@ cf-push-docker.sh
 
 ### Buildpack
 
-* Push your code directly without the need of a container registry with the following command
+* Push your code directly without the need of a container registry with the following commands (make sure you have done a build ahead of time)
+
 
 ```bash
 cf-push-buildpack.sh

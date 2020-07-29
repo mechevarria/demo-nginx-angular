@@ -7,9 +7,6 @@ if [ -f $envfile ] ; then
     rm $envfile
 fi
 
-echo "Building to 'dist'"
-npm run build
-
 app=demo-buildpack-angular
 
 cf push $app \
