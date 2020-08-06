@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
-		"html.format.wrapLineLength": 0
+        "html.format.wrapLineLength": 0,
+        "javascript.implicitProjectConfig.experimentalDecorators": true
 	}
 }
