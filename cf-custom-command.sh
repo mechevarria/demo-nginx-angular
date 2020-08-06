@@ -3,10 +3,6 @@
 echo "Running environment variable replacement commands via bash since envsubst is not available"
 cp ./dist/assets/js/env.template.js ./dist/assets/js/env.js
 
-search='${MAPBOX_TOKEN}'
-replace=$MAPBOX_TOKEN
-sed -i s@$search@$replace@g ./dist/assets/js/env.js
-
 search='${KEYCLOAK_URL}'
 replace=$KEYCLOAK_URL
 sed -i s@$search@$replace@g ./dist/assets/js/env.js
