@@ -16,7 +16,6 @@ cf push $app \
     -c '$HOME/cf-custom-command.sh' \
     --no-start
 
-cf se $app MAPBOX_TOKEN $MAPBOX_TOKEN
 cf se $app KEYCLOAK_URL $KEYCLOAK_URL
 cf se $app KEYCLOAK false
 
