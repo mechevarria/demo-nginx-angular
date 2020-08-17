@@ -18,9 +18,13 @@
       </div>
       <div class="card-footer">
         <button type="submit" class="btn btn-sm btn-primary mr-1" [disabled]="isBusy">
+          <span class="cil-check-circle btn-icon" *ngIf="!isBusy"></span> 
           <span class="spinner-border spinner-border-sm" *ngIf="isBusy"></span> Save
         </button>
-        <button type="button" class="btn btn-sm btn-danger" (click)="clear()" [disabled]="isBusy">Clear</button>
+        <button type="button" class="btn btn-sm btn-danger" (click)="clear()" [disabled]="isBusy">
+          <span class="cil-x-circle btn-icon"></span>
+          Clear
+        </button>
       </div>
     </form>
   </div>
